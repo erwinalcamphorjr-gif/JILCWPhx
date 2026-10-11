@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Devotional App — Jesus Is Lord Church, Bacolod City Chapter</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#243b63">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Devotional">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef1f5;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033}.app{width:100%;max-width:430px;min-height:100vh;margin:auto;background:#fff;position:relative;padding-bottom:78px;box-shadow:0 0 30px #0001}.top{padding:18px 18px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e9edf2;position:sticky;top:0;background:#fff;z-index:5}.brand{font-weight:800;font-size:21px}.brand span{font-size:18px}.iconbtn{border:0;background:#f0f3f7;border-radius:12px;width:42px;height:42px;font-size:20px}.screen{display:none;padding:18px}.screen.active{display:block}.hero{background:linear-gradient(135deg,#243b63,#526b98);color:white;border-radius:22px;padding:22px;margin-bottom:18px}.eyebrow{font-size:12px;opacity:.8;text-transform:uppercase;letter-spacing:.08em}.hero h1{margin:7px 0;font-size:25px}.welcome-greeting{font-size:18px;font-weight:800;margin-bottom:10px;letter-spacing:.01em}.card{border:1px solid #e5e9ef;border-radius:18px;padding:16px;margin:12px 0;background:#fff}.verse{font-family:Georgia,serif;font-size:20px;line-height:1.55}.ref{font-weight:700;margin-top:10px}.label{font-size:12px;font-weight:800;text-transform:uppercase;color:#6c7687;letter-spacing:.06em;margin:16px 0 7px}input,textarea,select{width:100%;border:1px solid #d9dee7;border-radius:12px;padding:12px;font:inherit;background:#fff}textarea{min-height:105px;resize:vertical}.row{display:flex;gap:8px}.row>*{flex:1}.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:750;font-size:14px;cursor:pointer}.primary{background:#243b63;color:#fff}.secondary{background:#edf1f6;color:#243b63}.danger{background:#feecec;color:#a12626}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#fff;border-top:1px solid #e5e9ef;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding:7px 5px calc(7px + env(safe-area-inset-bottom));z-index:10}.nav{border:0;background:none;font-size:10px;color:#687386;padding:7px 1px;min-width:0}.nav b{display:block;font-size:19px;margin-bottom:2px}.nav.active{color:#243b63;font-weight:800} .nav-note-icon{width:19px;height:19px;display:block;margin:0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.listitem{display:flex;justify-content:space-between;align-items:center;gap:10px}.muted{color:#727d8e;font-size:13px}.modal{position:fixed;inset:0;background:#0007;display:none;align-items:flex-end;justify-content:center;z-index:20}.modal.show{display:flex}.sheet{background:#fff;width:100%;max-width:430px;max-height:85vh;border-radius:24px 24px 0 0;padding:18px;overflow:auto}.versepick{border:1px solid #e1e6ed;border-radius:13px;padding:12px;margin:8px 0;cursor:pointer}.versepick.selected{background:#eaf0fa;border-color:#526b98}.small{font-size:12px}.smallbtn{font-size:12px;padding:9px 11px}.empty{text-align:center;padding:35px 10px;color:#778194}.bible-heading{font-family:Georgia,serif;font-size:25px;font-weight:700;margin:22px 0 12px}.bible-reading{font-family:Georgia,serif;font-size:18px;line-height:1.7}.bible-verse{padding:9px 8px;border-radius:10px;cursor:pointer}.bible-verse.selected{background:#eaf0fa}.bible-num{font-weight:800;font-size:13px;margin-right:7px;color:#243b63}.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#172033;color:#fff;padding:10px 15px;border-radius:10px;display:none;z-index:30;font-size:13px}.chips{display:flex;gap:7px;overflow:auto}.chip{white-space:nowrap;background:#f0f3f7;border-radius:20px;padding:8px 11px;font-size:12px}.sectiontitle{display:flex;justify-content:space-between;align-items:center}.sectiontitle h2{margin:5px 0}.hidden{display:none!important}.settings-footer{margin-top:28px;padding:12px 6px 6px;text-align:center;font-size:10px;color:#7b8492;line-height:1.5}.settings-footer-link{border:0;background:none;padding:0 4px;font:inherit;color:inherit;cursor:pointer}.settings-footer-details{margin-top:4px;font-size:9px;line-height:1.35;color:#9aa2ae}.saved-filter-note{margin:8px 0 0;font-size:12px;color:#727d8e}.saved-actions{display:flex;justify-content:flex-end;align-items:center;gap:6px;flex-shrink:0}.saved-icon{width:38px;height:38px;padding:0;display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1;border-radius:11px}.saved-icon.danger{font-size:20px}.dev-modal{position:fixed;inset:0;background:#fff;display:none;align-items:stretch;justify-content:center;z-index:25}.dev-modal.show{display:flex}.dev-sheet{background:#fff;width:100%;max-width:430px;height:100vh;padding:18px;padding-top:calc(18px + env(safe-area-inset-top));padding-bottom:calc(18px + env(safe-area-inset-bottom));overflow:auto;border-radius:0}.dev-sheet h3{margin:4px 0 2px}.dev-content{white-space:pre-wrap;line-height:1.55;margin-top:6px}
+
+#churchSplash{position:fixed;inset:0;z-index:9999;background:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:28px;transition:opacity .35s ease}
+#churchSplash.hide{opacity:0;pointer-events:none}
+#churchSplash img{width:150px;height:150px;object-fit:contain;border-radius:24px;margin-bottom:22px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.25))}
+#churchSplash .splash-title{font-size:22px;font-weight:800;color:#18324b}
+#churchSplash .splash-sub{margin-top:8px;font-size:14px;color:#6b7280}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.church-header{margin-left:auto;text-align:center;font-size:9px;line-height:1.15;font-weight:700;max-width:125px;color:#18324b}
+.church-header span{display:block}
+
+/* Production mobile foundation */
+html{background:#eef1f5;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overscroll-behavior-y:contain}
+button,input,textarea,select{font:inherit}
+button,.nav,.card,[role="button"]{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+textarea{resize:vertical}
+@media (max-width:430px){.app{max-width:none;box-shadow:none}.top{padding-top:calc(14px + env(safe-area-inset-top));}.screen{padding-left:16px;padding-right:16px}.bottom{padding-bottom:calc(8px + env(safe-area-inset-bottom));}}
+</style></head>
+<body>
+<div id="churchSplash" aria-label="Church logo splash screen"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAxgebWoNe_gI1-5swLWNRS9AuhxmJxQXXWsrx--l1mA&s=10" alt="Church logo" onerror="this.style.display='none'"><div id="splashAppTitle" class="splash-title">Devotional</div><div class="splash-sub">A moment with God's Word</div></div>
+<div class="app">
+<header class="top"><div id="brand" class="brand">✦ Devotional</div><div class="church-header" aria-label="Jesus Is Lord Church, Bacolod City Chapter"><span>Jesus Is Lord Church</span><span>Bacolod City Chapter</span></div></header>
+<main>
+<section id="home" class="screen active"><div class="hero"><div id="welcomeGreeting" class="welcome-greeting">You are blessed ERWIN!</div><div class="eyebrow" id="dayLabel">Scripture of the Day</div><div id="todayDate" class="muted small" style="color:rgba(255,255,255,.82);margin-top:4px"></div><h1 id="dayTitle">Trust God With Your Whole Heart</h1><div id="dayVersion" class="muted small" style="margin-bottom:10px">KJV — King James Version</div><div id="dayVerse" class="verse">“And this I pray, that your love may abound yet more and more in knowledge and in all judgment;”</div><div id="dayRef" class="ref">Philippians 1:9</div><div class="row" style="margin-top:16px"><button id="readDayBtn" class="btn secondary" onclick="readDayScripture()">📖 Read in Bible</button></div></div><div id="yesterdayScriptureCard" class="card" style="margin-top:0"><div id="yesterdayScriptureLabel" class="label" style="margin-top:0">Yesterday's Scripture</div><div id="yesterdayScriptureRef" class="ref" role="button" tabindex="0" aria-label="Read yesterday’s Scripture" title="Tap to read the full passage" style="margin-top:0;cursor:pointer" onclick="openYesterdayScripture()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openYesterdayScripture()}">Philippians 1:9–11</div></div><div class="sectiontitle"><h2 id="recentTitle">My Recent Devotionals</h2><button id="newBtn" class="btn secondary" onclick="newDevotional()">＋ New</button></div><div id="recent"></div></section>
+<section id="bible" class="screen"><div class="sectiontitle"><h2 id="bibleTitle">📖 Bible</h2></div><div id="bibleBookLabel" class="label">Book</div><select id="bibleBook" onchange="document.getElementById('bibleChapter').value='1';populateChapters()"></select><div id="bibleChapterLabel" class="label">Chapter</div><select id="bibleChapter" onchange="renderBibleChapter()"></select><div id="chapterHeading" class="bible-heading">Philippians 1</div><div id="chapterVerses" class="bible-reading"></div><button id="addBibleSelectedBtn" class="btn primary hidden" style="width:100%;margin-top:14px" onclick="addBiblePageSelected()">Add Selected Scripture</button></section>
+<section id="create" class="screen"><div class="sectiontitle"><h2 id="createTitle">Create Devotional</h2><div id="devDate" class="muted small"></div></div><div id="createScriptureLabel" class="label">Scripture</div><textarea id="scripture" placeholder="Write or select your Scripture..."></textarea><button id="addBibleBtn" class="btn secondary smallbtn" onclick="openBibleFromCreate()">📖 Add Scripture from Bible</button><div id="observationLabel" class="label">Observation</div><textarea id="observation" placeholder="What is God teaching through this passage?"></textarea><div id="applicationLabel" class="label">Application</div><textarea id="application" placeholder="How will I live this out today?"></textarea><div id="prayerLabel" class="label">Prayer</div><textarea id="prayer" placeholder="Write your prayer..."></textarea><button id="saveBtn" class="btn primary" style="width:100%;margin-top:14px" onclick="saveDevotional()">Save Devotional</button></section>
+<section id="saved" class="screen"><div class="sectiontitle"><h2 id="savedTitle">Saved Devotionals</h2><button id="clearBtn" class="btn danger" onclick="clearSaved()">Clear</button></div><div class="card" style="margin-top:14px"><div id="savedFilterLabel" class="label" style="margin-top:0">Filter Saved Devotionals</div><div class="label" id="savedDateChooseLabel" style="margin-top:10px">Choose a date</div><div><input id="savedDateFilter" type="date" onchange="filterSaved()" aria-label="Date"></div><button id="clearSavedFilterBtn" class="btn secondary smallbtn" style="margin-top:8px;width:100%" onclick="clearSavedFilter()">Clear Filter</button></div><div id="savedList"></div></section>
+<section id="churchNotes" class="screen"><div class="sectiontitle"><h2 id="churchNotesTitle">Church Notes</h2></div><p id="churchNotesIntro" class="muted">Write and keep notes from church services, sermons, Bible studies, and fellowship.</p><div class="card"><div class="label" id="churchNoteTitleLabel" style="margin-top:0">Note title (optional)</div><input id="churchNoteTitle" type="text" maxlength="120" placeholder="Example: Sunday Service — Faith in God"><div class="label" id="churchNoteBodyLabel">Your notes</div><textarea id="churchNoteBody" style="min-height:180px" placeholder="Write your church notes here..."></textarea><div class="muted small" id="churchNoteDate" style="margin-top:8px"></div><div class="row" style="margin-top:12px"><button id="saveChurchNoteBtn" class="btn primary" onclick="saveChurchNote()">Save Note</button><button id="cancelChurchNoteBtn" class="btn secondary hidden" onclick="resetChurchNoteForm()">Cancel Edit</button></div></div><h3 id="savedChurchNotesTitle" style="margin-top:24px">Saved Church Notes</h3><div class="card" style="margin-bottom:12px"><div class="label" id="churchNotesFilterLabel" style="margin-top:0">Filter by date</div><label class="muted small" id="churchNotesDateLabel" for="churchNotesDateFilter">Date (mm/dd/yyyy)</label><input id="churchNotesDateFilter" type="date" lang="en-US" style="width:100%" onchange="renderChurchNotes()" aria-label="Filter church notes by date, month, day, and year"><button id="clearChurchNotesFilterBtn" class="btn secondary smallbtn" style="margin-top:8px;width:100%" onclick="clearChurchNotesFilter()">Clear Date Filter</button></div><div id="churchNotesList"></div></section>
+<div id="churchNoteViewModal" class="dev-modal" role="dialog" aria-modal="true" aria-labelledby="churchNoteViewTitle"><div class="dev-sheet"><div class="row" style="justify-content:space-between;align-items:center"><h3 id="churchNoteViewTitle">Church Note</h3><button class="btn secondary saved-icon" type="button" aria-label="Close" onclick="closeChurchNoteView()">×</button></div><div id="churchNoteViewDate" class="muted small" style="margin-top:8px"></div><div id="churchNoteViewBody" class="dev-content" style="margin-top:18px;overflow-wrap:anywhere"></div><button id="churchNoteViewCloseBtn" class="btn primary" style="width:100%;margin-top:22px" onclick="closeChurchNoteView()">Close</button></div></div>
+<section id="settings" class="screen"><h2 data-i18n="settingsTitle">Settings</h2><div class="card"><div class="label" data-i18n="appLanguage">App Language</div><select id="appLanguage" onchange="handleLanguageChoice(this.value)"><option value="EN">English</option><option value="HIL">Hiligaynon</option><option value="TAG">Filipino / Tagalog</option><option value="CEB">Cebuano</option><option value="ILO">Ilokano</option></select><div id="englishVersionWrap"><div class="label" data-i18n="defaultBibleVersion">Default Bible Version</div><select id="settingsBibleVersion" onchange="applyDefaultVersion(this.value)"><option value="KJV">KJV — King James Version</option><option value="NKJV">NKJV — New King James Version</option><option value="NIV">NIV — New International Version</option><option value="NLT">NLT — New Living Translation</option></select></div><div id="localVersionNotice" class="muted small hidden" data-i18n="localBibleAuto">Your Bible version is automatically set to match the app language.</div></div><div class="settings-footer"><div><button class="settings-footer-link" type="button" data-i18n="offlineUse">Offline Use</button><span> • </span><button class="settings-footer-link" type="button" data-i18n="about">About</button></div><div class="settings-footer-details" data-i18n="offlineText">Your saved devotionals and app settings are stored on this device. Bible Scripture is provided through the app’s connected Bible services.</div><div id="prototypeFooter" class="settings-footer-details">Devotional App • Phone Prototype v1</div></div></section></main><nav class="bottom"><button class="nav active" data-s="home" onclick="show('home')"><b>⌂</b>Home</button><button class="nav" data-s="bible" onclick="show('bible')"><b>📖</b>Bible</button><button class="nav" data-s="create" onclick="show('create')"><b>＋</b>Create</button><button class="nav" data-s="saved" onclick="show('saved')"><b>♡</b>Saved</button><button class="nav" data-s="churchNotes" onclick="show('churchNotes')"><b aria-hidden="true"><svg class="nav-note-icon" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M7 3.75h7l4 4v12.5H7a2 2 0 0 1-2-2v-12.5a2 2 0 0 1 2-2Z"/><path d="M14 3.75v4h4M8.5 12h7M8.5 15.5h7M8.5 8.75h2"/></svg></b>Church Notes</button><button class="nav" data-s="settings" onclick="show('settings')"><b>⚙</b>Settings</button></nav></div>
+<div id="nameModal" class="modal" style="align-items:center;padding:18px"><div class="sheet" style="border-radius:24px;max-height:none"><h2 id="nameModalTitle">Welcome!</h2><p id="nameModalText" class="muted">What is your name?</p><input id="userNameInput" type="text" autocomplete="name" maxlength="60" placeholder="Enter your name"><button id="nameSaveBtn" class="btn primary" style="width:100%;margin-top:12px" onclick="saveUserName()">Continue</button></div></div><div id="toast" class="toast"></div><div id="yesterdayVerseModal" class="dev-modal" onclick="if(event.target===this)closeYesterdayScripture()"><div class="dev-sheet"><div class="sectiontitle"><div><h3 id="yesterdayVerseTitle">Yesterday’s Scripture</h3><div id="yesterdayVerseVersion" class="muted small"></div></div><button class="btn secondary" aria-label="Close Scripture" title="Close Scripture" style="width:40px;height:40px;padding:0;font-size:24px;line-height:1;border-radius:12px;flex-shrink:0" onclick="closeYesterdayScripture()">×</button></div><div id="yesterdayVerseContent" class="bible-reading" style="margin-top:20px"></div></div></div><div id="devModal" class="dev-modal" onclick="if(event.target===this)closeDevModal()"><div class="dev-sheet"><div class="sectiontitle"><div><h3 id="devModalTitle">Devotional</h3><div id="devModalDate" class="muted small"></div></div><button class="btn secondary" aria-label="Close" title="Close" style="width:40px;height:40px;padding:0;font-size:24px;line-height:1;border-radius:12px;flex-shrink:0" onclick="closeDevModal()">×</button></div><div class="label" id="viewScriptureLabel">Scripture</div><div id="viewScripture" class="dev-content"></div><div class="label" id="viewObservationLabel">Observation</div><div id="viewObservation" class="dev-content"></div><div class="label" id="viewApplicationLabel">Application</div><div id="viewApplication" class="dev-content"></div><div class="label" id="viewPrayerLabel">Prayer</div><div id="viewPrayer" class="dev-content"></div><button id="viewEditBtn" class="btn primary" style="width:100%;margin-top:16px" onclick="editCurrentDevotional()">Edit Devotional</button></div></div>
+<script>
+const bibleSamples={KJV:[['1:9','And this I pray, that your love may abound yet more and more in knowledge and in all judgment;'],['1:10','That ye may approve things that are excellent; that ye may be sincere and without offence till the day of Christ;'],['1:11','Being filled with the fruits of righteousness, which are by Jesus Christ, unto the glory and praise of God.']],NKJV:[['1:9','And this I pray, that your love may abound still more and more in knowledge and all discernment,'],['1:10','that you may approve the things that are excellent, that you may be sincere and without offense till the day of Christ,'],['1:11','being filled with the fruits of righteousness which are by Jesus Christ, to the glory and praise of God.']],AMP:[['1:9','And this I pray, that your love may abound more and more [displaying itself in greater depth] in real knowledge and practical insight,'],['1:10','so that you may learn to recognize and treasure what is excellent, identifying the best from the good,'],['1:11','filled with the fruit of righteousness [which comes] through Jesus Christ, to the glory and praise of God.']],NIV:[['1:9','Sample licensed-text placeholder for the selected NIV passage.'],['1:10','Connect a licensed Bible-text provider to display the full NIV wording.'],['1:11','Verse selection and devotional linking remain available in the prototype.']],ESV:[['1:9','Sample licensed-text placeholder for the selected ESV passage.'],['1:10','Connect a licensed Bible-text provider to display the full ESV wording.'],['1:11','Verse selection and devotional linking remain available in the prototype.']],NLT:[['1:9','Sample licensed-text placeholder for the selected NLT passage.'],['1:10','Connect a licensed Bible-text provider to display the full NLT wording.'],['1:11','Verse selection and devotional linking remain available in the prototype.']],HIL:[['1:9','Pangamuyo ko nga magdugang pa gid ang inyo paghigugma sa kahibalo kag pagsabot;'],['1:10','agud matun-an ninyo ang pagpili sang labing maayo kag mangin sinsero kag wala sing ikasaway;'],['1:11','nga napun-an sang bunga sang pagkamatarong paagi kay Jesu-Cristo, para sa himaya sang Dios.']],TAG:[['1:9','Idinadalangin ko na lalo pang lumago ang inyong pag-ibig sa kaalaman at wastong pagkaunawa;'],['1:10','upang makilala ninyo ang mga bagay na higit na mahalaga at maging tapat at walang kapintasan;'],['1:11','na puspos ng bunga ng katuwiran sa pamamagitan ni Jesu-Cristo, para sa kaluwalhatian ng Diyos.']]};let selected=[];
+const UI={EN:{settingsTitle:'Settings',welcome:'You are blessed',nameWelcome:'Welcome!',namePrompt:'What is your name?',namePlaceholder:'Enter your name',continueBtn:'Continue',appLanguage:'App Language',defaultBibleVersion:'Default Bible Version',localBibleAuto:'Your Bible version is automatically set to match the app language.',offlineUse:'Offline Use',offlineText:'Your saved devotionals and app settings are stored on this device. Bible Scripture is provided through the app’s connected Bible services.',about:'About',home:'Home',bible:'Bible',create:'Create',saved:'Saved',scriptureDay:'Scripture of the Day',today:'Today',recent:'My Recent Devotionals',newBtn:'＋ New',readBible:'📖 Read in Bible',book:'Book',chapter:'Chapter',verses:'Verses',observation:'Observation',application:'Application',prayer:'Prayer',scripture:'Scripture',addBible:'📖 Add Scripture from Bible',createDev:'Create Devotional',saveDev:'Save Devotional',clear:'Clear',close:'Close',bookChapter:'Book & Chapter',addSelected:'Add Selected Verse(s)',view:'View',edit:'Edit',delete:'Delete',close:'Close',viewDevotional:'View Devotional',editDevotional:'Edit Devotional',dayTitle:'Trust God With Your Whole Heart',emptyDev:'Add something to your devotional first.',savedMsg:'Devotional saved.',clearedMsg:'Saved devotionals cleared.',clearConfirm:'Clear all saved devotionals?',selectVerse:'Select at least one verse.',addedMsg:'Verse(s) added to Scripture.',emptyNotes:'No notes yet.',filterSaved:'Filter Saved Devotionals',allMonths:'All Months',clearFilter:'Clear Filter',dateFilter:'Date',chooseDate:'Choose a date',noMatches:'No devotionals found for this filter.',noSaved:'No saved devotionals yet.',createFirst:'Create your first one.',noRecent:'Your saved devotionals will appear here.'},HIL:{settingsTitle:'Mga Setting',welcome:'Ginapanalanginan ka',nameWelcome:'Maayong Pag-abot!',namePrompt:'Ano ang imo ngalan?',namePlaceholder:'Isulod ang imo ngalan',continueBtn:'Padayon',appLanguage:'Pinulongan sang App',defaultBibleVersion:'Default nga Bersyon sang Biblia',localBibleAuto:'Ang bersyon sang Biblia awtomatiko nga ginapareho sa pinulongan sang app.',offlineUse:'Offline nga Paggamit',offlineText:'Ang imo mga devotional kag app settings ginatipigan sa sini nga device. Ang Kasulatan ginahatag paagi sa konektado nga Bible services sang app.',about:'Parte sa App',home:'Home',bible:'Biblia',create:'Maghimo',saved:'Natipigan',scriptureDay:'Kasulatan sang Adlaw',today:'Subong nga Adlaw',recent:'Akong mga Bag-o nga Devotional',newBtn:'＋ Bag-o',readBible:'📖 Basaha sa Biblia',book:'Libro',chapter:'Kapitulo',verses:'Mga Bersikulo',observation:'Pahanumdum',application:'Pag-aplikar',prayer:'Pangamuyo',scripture:'Kasulatan',addBible:'📖 Magdugang sang Kasulatan halin sa Biblia',createDev:'Maghimo sang Devotional',saveDev:'Tipigi ang Devotional',clear:'Limpyohan',close:'Sira',bookChapter:'Libro kag Kapitulo',addSelected:'Idugang ang Napili nga Bersikulo',view:'Tan-awa',edit:'I-edit',delete:'Delete',close:'Sira',viewDevotional:'Tan-awa ang Devotional',editDevotional:'I-edit ang Devotional',dayTitle:'Magsalig sa Dios sa Bug-os Mo nga Tagipusuon',emptyDev:'Magdugang anay sang isa ka butang sa imo devotional.',savedMsg:'Natipigan ang devotional.',clearedMsg:'Nalimpyo na ang mga natipigan nga devotional.',clearConfirm:'Limpyohan ang tanan nga natipigan nga devotional?',selectVerse:'Pilia ang isa ukon mas madamo nga bersikulo.',addedMsg:'Nadugang ang mga bersikulo sa Kasulatan.',emptyNotes:'Wala pa sang mga nota.',filterSaved:'I-filter ang mga natipigan nga devotional',allMonths:'Tanan nga Bulan',clearFilter:'Limpyohan ang Filter',dateFilter:'Petsa',chooseDate:'Pilia ang petsa',noMatches:'Wala sing devotional nga makita para sa sini nga filter.',noSaved:'Wala pa sang natipigan nga devotional.',createFirst:'Maghimo sang imo una.',noRecent:'Diri makita ang imo mga natipigan nga devotional.'},TAG:{settingsTitle:'Mga Setting',welcome:'Pinagpala ka',nameWelcome:'Maayong Pag-abot!',namePrompt:'Ano ang imo ngalan?',namePlaceholder:'Isulod ang imo ngalan',continueBtn:'Padayon',appLanguage:'Wika ng App',defaultBibleVersion:'Default na Bersyon ng Biblia',localBibleAuto:'Awtomatikong itinatakda ang bersyon ng Biblia ayon sa wika ng app.',offlineUse:'Offline na Paggamit',offlineText:'Ang iyong mga devotional at app settings ay naka-save sa device na ito. Ang Kasulatan ay ibinibigay sa pamamagitan ng nakakonektang Bible services ng app.',about:'Tungkol sa App',home:'Home',bible:'Biblia',create:'Gumawa',saved:'Naka-save',scriptureDay:'Kasulatan ng Araw',today:'Ngayong Araw',recent:'Aking mga Kamakailang Devotional',newBtn:'＋ Bago',readBible:'📖 Basahin sa Biblia',book:'Aklat',chapter:'Kabanata',verses:'Mga Bersikulo',observation:'Obserbasyon',application:'Aplikasyon',prayer:'Panalangin',scripture:'Kasulatan',addBible:'📖 Magdagdag ng Kasulatan mula sa Biblia',createDev:'Gumawa ng Devotional',saveDev:'I-save ang Devotional',clear:'I-clear',close:'Isara',bookChapter:'Aklat at Kabanata',addSelected:'Idagdag ang Napiling Bersikulo',view:'Tingnan',edit:'I-edit',delete:'Tanggalin',close:'Isara',viewDevotional:'Tingnan ang Devotional',editDevotional:'I-edit ang Devotional',dayTitle:'Magtiwala sa Diyos nang Buong Puso',emptyDev:'Magdagdag muna ng nilalaman sa iyong devotional.',savedMsg:'Na-save ang devotional.',clearedMsg:'Na-clear na ang mga naka-save na devotional.',clearConfirm:'I-clear ang lahat ng naka-save na devotional?',selectVerse:'Pumili ng kahit isang bersikulo.',addedMsg:'Naidagdag ang mga bersikulo sa Kasulatan.',emptyNotes:'Wala pang tala.',filterSaved:'I-filter ang mga naka-save na devotional',allMonths:'Lahat ng Buwan',clearFilter:'I-clear ang Filter',dateFilter:'Petsa',chooseDate:'Pilia ang petsa',noMatches:'Walang devotional na makita para sa filter na ito.',noSaved:'Wala pang naka-save na devotional.',createFirst:'Gumawa ng iyong una.',noRecent:'Dito makikita ang iyong mga naka-save na devotional.'} };
+const BOOK_NAMES={"EN":{"Genesis":"Genesis","Exodus":"Exodus","Leviticus":"Leviticus","Numbers":"Numbers","Deuteronomy":"Deuteronomy","Joshua":"Joshua","Judges":"Judges","Ruth":"Ruth","1 Samuel":"1 Samuel","2 Samuel":"2 Samuel","1 Kings":"1 Kings","2 Kings":"2 Kings","1 Chronicles":"1 Chronicles","2 Chronicles":"2 Chronicles","Ezra":"Ezra","Nehemiah":"Nehemiah","Esther":"Esther","Job":"Job","Psalm":"Psalm","Proverbs":"Proverbs","Ecclesiastes":"Ecclesiastes","Song of Solomon":"Song of Solomon","Isaiah":"Isaiah","Jeremiah":"Jeremiah","Lamentations":"Lamentations","Ezekiel":"Ezekiel","Daniel":"Daniel","Hosea":"Hosea","Joel":"Joel","Amos":"Amos","Obadiah":"Obadiah","Jonah":"Jonah","Micah":"Micah","Nahum":"Nahum","Habakkuk":"Habakkuk","Zephaniah":"Zephaniah","Haggai":"Haggai","Zechariah":"Zechariah","Malachi":"Malachi","Matthew":"Matthew","Mark":"Mark","Luke":"Luke","John":"John","Acts":"Acts","Romans":"Romans","1 Corinthians":"1 Corinthians","2 Corinthians":"2 Corinthians","Galatians":"Galatians","Ephesians":"Ephesians","Philippians":"Philippians","Colossians":"Colossians","1 Thessalonians":"1 Thessalonians","2 Thessalonians":"2 Thessalonians","1 Timothy":"1 Timothy","2 Timothy":"2 Timothy","Titus":"Titus","Philemon":"Philemon","Hebrews":"Hebrews","James":"James","1 Peter":"1 Peter","2 Peter":"2 Peter","1 John":"1 John","2 John":"2 John","3 John":"3 John","Jude":"Jude","Revelation":"Revelation"},"HIL":{"Genesis":"Genesis","Exodus":"Exodo","Leviticus":"Levitico","Numbers":"Numero","Deuteronomy":"Deuteronomio","Joshua":"Josue","Judges":"Hukom","Ruth":"Ruth","1 Samuel":"1 Samuel","2 Samuel":"2 Samuel","1 Kings":"1 Hari","2 Kings":"2 Hari","1 Chronicles":"1 Cronica","2 Chronicles":"2 Cronica","Ezra":"Ezra","Nehemiah":"Nehemias","Esther":"Ester","Job":"Job","Psalm":"Salmo","Proverbs":"Hulubaton","Ecclesiastes":"Manugwali","Song of Solomon":"Awit ni Solomon","Isaiah":"Isaias","Jeremiah":"Jeremias","Lamentations":"Pagtangis","Ezekiel":"Ezekiel","Daniel":"Daniel","Hosea":"Oseas","Joel":"Joel","Amos":"Amos","Obadiah":"Obadias","Jonah":"Jonas","Micah":"Mikas","Nahum":"Nahum","Habakkuk":"Habakuk","Zephaniah":"Sofonias","Haggai":"Hagai","Zechariah":"Zacarias","Malachi":"Malakias","Matthew":"Mateo","Mark":"Marcos","Luke":"Lucas","John":"Juan","Acts":"Binuhatan","Romans":"Roma","1 Corinthians":"1 Corinto","2 Corinthians":"2 Corinto","Galatians":"Galacia","Ephesians":"Efeso","Philippians":"Filipos","Colossians":"Colosas","1 Thessalonians":"1 Tesalonica","2 Thessalonians":"2 Tesalonica","1 Timothy":"1 Timoteo","2 Timothy":"2 Timoteo","Titus":"Tito","Philemon":"Filemon","Hebrews":"Hebreo","James":"Santiago","1 Peter":"1 Pedro","2 Peter":"2 Pedro","1 John":"1 Juan","2 John":"2 Juan","3 John":"3 Juan","Jude":"Judas","Revelation":"Pahayag"},"TAG":{"Genesis":"Genesis","Exodus":"Exodo","Leviticus":"Levitico","Numbers":"Mga Bilang","Deuteronomy":"Deuteronomio","Joshua":"Josue","Judges":"Mga Hukom","Ruth":"Ruth","1 Samuel":"1 Samuel","2 Samuel":"2 Samuel","1 Kings":"1 Mga Hari","2 Kings":"2 Mga Hari","1 Chronicles":"1 Mga Cronica","2 Chronicles":"2 Mga Cronica","Ezra":"Ezra","Nehemiah":"Nehemias","Esther":"Ester","Job":"Job","Psalm":"Mga Awit","Proverbs":"Kawikaan","Ecclesiastes":"Mangangaral","Song of Solomon":"Awit ni Solomon","Isaiah":"Isaias","Jeremiah":"Jeremias","Lamentations":"Panaghoy","Ezekiel":"Ezekiel","Daniel":"Daniel","Hosea":"Oseas","Joel":"Joel","Amos":"Amos","Obadiah":"Obadias","Jonah":"Jonas","Micah":"Mikas","Nahum":"Nahum","Habakkuk":"Habacuc","Zephaniah":"Sofonias","Haggai":"Hagai","Zechariah":"Zacarias","Malachi":"Malakias","Matthew":"Mateo","Mark":"Marcos","Luke":"Lucas","John":"Juan","Acts":"Mga Gawa","Romans":"Mga Romano","1 Corinthians":"1 Mga Taga-Corinto","2 Corinthians":"2 Mga Taga-Corinto","Galatians":"Galacia","Ephesians":"Mga Taga-Efeso","Philippians":"Mga Taga-Filipos","Colossians":"Colosas","1 Thessalonians":"1 Tesalonica","2 Thessalonians":"2 Tesalonica","1 Timothy":"1 Timoteo","2 Timothy":"2 Timoteo","Titus":"Tito","Philemon":"Filemon","Hebrews":"Mga Hebreo","James":"Santiago","1 Peter":"1 Pedro","2 Peter":"2 Pedro","1 John":"1 Juan","2 John":"2 Juan","3 John":"3 Juan","Jude":"Judas","Revelation":"Pahayag"}};
+BOOK_NAMES.CEB={...BOOK_NAMES.EN,"Genesis":"Genesis","Exodus":"Exodo","Leviticus":"Levitico","Numbers":"Mga Numero","Deuteronomy":"Deuteronomio","Joshua":"Josue","Judges":"Mga Maghuhukom","Ruth":"Ruth","Psalm":"Mga Salmo","Proverbs":"Mga Panultihon","Ecclesiastes":"Ecclesiastes","Song of Solomon":"Awit ni Solomon","Isaiah":"Isaias","Jeremiah":"Jeremias","Lamentations":"Mga Pagbangotan","Ezekiel":"Ezekiel","Daniel":"Daniel","Hosea":"Oseas","Joel":"Joel","Amos":"Amos","Obadiah":"Obadias","Jonah":"Jonas","Micah":"Mikas","Nahum":"Nahum","Habakkuk":"Habakuk","Zephaniah":"Sofonias","Haggai":"Hagai","Zechariah":"Zacarias","Malachi":"Malakias","Matthew":"Mateo","Mark":"Marcos","Luke":"Lucas","John":"Juan","Acts":"Mga Buhat","Romans":"Mga Romano","1 Corinthians":"1 Corinto","2 Corinthians":"2 Corinto","Galatians":"Galacia","Ephesians":"Efeso","Philippians":"Filipos","Colossians":"Colosas","1 Thessalonians":"1 Tesalonica","2 Thessalonians":"2 Tesalonica","1 Timothy":"1 Timoteo","2 Timothy":"2 Timoteo","Titus":"Tito","Philemon":"Filemon","Hebrews":"Hebreohanon","James":"Santiago","1 Peter":"1 Pedro","2 Peter":"2 Pedro","1 John":"1 Juan","2 John":"2 Juan","3 John":"3 Juan","Jude":"Judas","Revelation":"Pinadayag"};
+BOOK_NAMES.ILO={...BOOK_NAMES.EN,"Genesis":"Genesis","Exodus":"Exodo","Leviticus":"Levitico","Numbers":"Numero","Deuteronomy":"Deuteronomio","Joshua":"Josue","Judges":"Dagiti Hukom","Ruth":"Ruth","Psalm":"Salmo","Proverbs":"Dagiti Proverbio","Ecclesiastes":"Eclesiastes","Song of Solomon":"Kanta ni Solomon","Isaiah":"Isaias","Jeremiah":"Jeremias","Lamentations":"Un-unnoy","Ezekiel":"Ezekiel","Daniel":"Daniel","Hosea":"Oseas","Joel":"Joel","Amos":"Amos","Obadiah":"Obadias","Jonah":"Jonas","Micah":"Micas","Nahum":"Nahum","Habakkuk":"Habakuk","Zephaniah":"Sofonias","Haggai":"Hagai","Zechariah":"Zacarias","Malachi":"Malakias","Matthew":"Mateo","Mark":"Marcos","Luke":"Lucas","John":"Juan","Acts":"Dagiti Aramid","Romans":"Roma","1 Corinthians":"1 Corinto","2 Corinthians":"2 Corinto","Galatians":"Galacia","Ephesians":"Efeso","Philippians":"Filipos","Colossians":"Colosas","1 Thessalonians":"1 Tesalonica","2 Thessalonians":"2 Tesalonica","1 Timothy":"1 Timoteo","2 Timothy":"2 Timoteo","Titus":"Tito","Philemon":"Filemon","Hebrews":"Hebreo","James":"Santiago","1 Peter":"1 Pedro","2 Peter":"2 Pedro","1 John":"1 Juan","2 John":"2 Juan","3 John":"3 Juan","Jude":"Judas","Revelation":"Paltiing"};
+let pageSelected=[];let activeCreateSession=false;
+function bookName(book){return (BOOK_NAMES[localStorage.getItem('appLanguage')||'EN']||BOOK_NAMES.EN)[book]||book}
+function populateBooks(){const sel=document.getElementById('bibleBook');if(!sel)return;const current=sel.value||'Philippians';const lang=localStorage.getItem('appLanguage')||'EN';sel.innerHTML=Object.keys(BOOK_NAMES.EN).map(k=>'<option value="'+k+'">'+bookName(k)+'</option>').join('');sel.value=BOOK_NAMES[lang]&&BOOK_NAMES[lang][current]?current:'Philippians'}
+function versionLabel(v){return {KJV:'KJV — King James Version',NKJV:'NKJV — New King James Version',AMP:'AMP — Amplified Bible',NIV:'NIV — New International Version',ESV:'ESV — English Standard Version',NLT:'NLT — New Living Translation',HIL:'Hiligaynon Bible',TAG:'Filipino / Tagalog Bible',CEB:'Cebuano Bible',ILO:'Ilokano Bible'}[v]||v}
+function currentVersion(){const l=currentBibleLanguage();if(['HIL','TAG','CEB','ILO'].includes(l))return l;const v=localStorage.getItem('defaultBibleVersion')||'KJV';return ['KJV','NKJV','NIV','NLT'].includes(v)?v:'KJV'}
+function currentVerses(){return window.loadedBibleVerses||bibleSamples[currentVersion()]||bibleSamples.KJV}
+function homeExactVerseText(text, verseNumber, nextVerseNumber){
+  let t=stripBibleMarkup(text).replace(/\s+/g,' ').trim();
+  if(!t)return '';
+
+  // Keep the Home card limited to the requested verse when a parser/source
+  // accidentally includes the following verse.
+  if(nextVerseNumber){
+    const re=new RegExp('(?:^|\\s)'+nextVerseNumber+'(?:[.)]|:)\\s+');
+    const m=t.match(re);
+    if(m && m.index>0)t=t.slice(0,m.index).trim();
+  }
+  t=t.replace(new RegExp('^'+verseNumber+'(?:[.)]|:)\\s+'),'').trim();
+
+  // NIV-specific cleanup:
+  // API.Bible's NIV HTML may expose the same verse text more than once through
+  // separate verse-span/data-vid/data-sid elements. The parser intentionally
+  // preserves those pieces, so Home removes only an immediately repeated
+  // sentence/phrase instead of altering the Bible chapter data.
+  const sentenceParts=t.match(/[^.!?]+[.!?]+(?:['”’])?/g);
+  if(sentenceParts && sentenceParts.length>1){
+    const cleaned=[];
+    for(const raw of sentenceParts){
+      const sentence=raw.trim();
+      const key=sentence
+        .toLowerCase()
+        .replace(/[“”"'’]/g,'')
+        .replace(/\\s+/g,' ')
+        .trim();
+      const previous=cleaned.length?cleaned[cleaned.length-1]:null;
+      const previousKey=previous
+        ? previous.toLowerCase().replace(/[“”"'’]/g,'').replace(/\\s+/g,' ').trim()
+        : '';
+      if(key && key===previousKey)continue;
+      cleaned.push(sentence);
+    }
+    t=cleaned.join(' ').replace(/\\s+([,.;!?])/g,'$1').trim();
+  }
+
+  // Also remove a duplicated trailing phrase when the repeated text is not
+  // separated into sentences. Require a substantial repeated block so normal
+  // repeated words in Scripture are never removed.
+  const words=t.split(/\\s+/);
+  let removed=false;
+  for(let size=Math.min(35,Math.floor(words.length/2));size>=8;size--){
+    const first=words.slice(words.length-size*2,words.length-size).join(' ');
+    const second=words.slice(words.length-size).join(' ');
+    if(first && first===second){
+      t=words.slice(0,words.length-size).join(' ');
+      removed=true;
+      break;
+    }
+  }
+
+  // The NIV chapter response can append the section heading after the final
+  // requested verse. Home displays Scripture only, so remove that heading.
+  if(verseNumber===11){
+    t=t.replace(/\\s*Paul[’']s Chains Advance the Gospel\\s*$/i,'').trim();
+  }
+
+  return t;
+}
+async function updateDayScripture(){
+  const v=currentVersion();
+  const dayVersion=document.getElementById('dayVersion');
+  const dayVerse=document.getElementById('dayVerse');
+  const dayRef=document.getElementById('dayRef');
+  const yesterdayCard=document.getElementById('yesterdayScriptureCard');
+  const yesterdayLabel=document.getElementById('yesterdayScriptureLabel');
+  const yesterdayRef=document.getElementById('yesterdayScriptureRef');
+
+  // The Home Scripture rotates deterministically by calendar day. The same
+  // Scripture is shown throughout one local day, then a different passage is
+  // selected automatically the next day.
+  const dailyPassages=[
+    ['John',3,16,16],
+    ['Proverbs',3,5,6],
+    ['Philippians',4,6,7],
+    ['Jeremiah',29,11,11],
+    ['Romans',8,28,28],
+    ['Psalm',23,1,3],
+    ['Matthew',11,28,30],
+    ['Isaiah',41,10,10],
+    ['Joshua',1,9,9],
+    ['Psalm',46,1,2],
+    ['Romans',12,1,2],
+    ['Galatians',5,22,23],
+    ['Ephesians',2,8,9],
+    ['2 Timothy',1,7,7],
+    ['Psalm',119,105,105],
+    ['Matthew',6,33,34],
+    ['Psalm',37,4,5],
+    ['Isaiah',40,31,31],
+    ['1 Peter',5,7,7],
+    ['Psalm',34,17,18],
+    ['John',14,1,3],
+    ['Romans',15,13,13],
+    ['Psalm',121,1,2],
+    ['Colossians',3,12,14],
+    ['2 Corinthians',5,17,17],
+    ['James',1,5,5],
+    ['Psalm',27,1,1],
+    ['Matthew',11,28,28],
+    ['Philippians',1,9,11],
+    ['Romans',8,38,39],
+    ['Psalm',91,1,2]
+  ];
+
+  const now=new Date();
+  const dayKey=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  const dayNumber=Math.floor(new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime()/86400000);
+  const passage=dailyPassages[((dayNumber%dailyPassages.length)+dailyPassages.length)%dailyPassages.length];
+  const yesterdayIndex=((dayNumber-1)%dailyPassages.length+dailyPassages.length)%dailyPassages.length;
+  const yesterdayPassage=dailyPassages[yesterdayIndex];
+  window.yesterdayDailyPassage=yesterdayPassage;
+  if(yesterdayRef&&yesterdayPassage){
+    const yBook=yesterdayPassage[0],yCh=yesterdayPassage[1],yStart=yesterdayPassage[2],yEnd=yesterdayPassage[3];
+    yesterdayRef.textContent=bookName(yBook)+' '+yCh+':'+(yStart===yEnd?String(yStart):yStart+'–'+yEnd);
+  }
+  if(yesterdayCard) yesterdayCard.style.display=yesterdayPassage?'block':'none';
+  const [book,ch,scriptureStart,scriptureEnd]=passage;
+  const rangeLabel=scriptureStart===scriptureEnd
+    ? String(scriptureStart)
+    : scriptureStart+'–'+scriptureEnd;
+
+  dayVersion.textContent=versionLabel(v);
+  dayRef.textContent=bookName(book)+' '+ch+':'+rangeLabel;
+
+  const showVerses=(verses)=>{
+    if(!Array.isArray(verses)||!verses.length)return false;
+    const selected=[];
+    for(let n=scriptureStart;n<=scriptureEnd;n++){
+      const row=verses.find(x=>String(x[0])===ch+':'+n);
+      if(row&&row[1]){
+        const next=n<scriptureEnd?n+1:null;
+        const text=homeExactVerseText(row[1],n,next);
+        if(text)selected.push(text);
+      }
+    }
+    if(selected.length){
+      dayVerse.textContent='“'+selected.join(' ')+'”';
+      dayRef.textContent=bookName(book)+' '+ch+':'+rangeLabel;
+      return true;
+    }
+    return false;
+  };
+
+  // Cache is deliberately tied to the calendar day and selected version so a
+  // previous day's Scripture can never be reused as today's Scripture.
+  const cacheKey=(v==='CEB'||v==='ILO')
+    ? 'openBibleDaily:'+v.toLowerCase()+':'+dayKey+':'+book+':'+ch
+    : (v==='HIL')
+      ? 'hilDailyBible:'+dayKey+':'+book+':'+ch
+      : (v==='NKJV'||v==='NIV'||v==='NLT')
+      ? 'apiDailyBible:'+dayKey+':'+v.toLowerCase()+':'+book+':'+ch
+      : 'getDailyBible:'+dayKey+':'+(v==='TAG'?'tagalog':v==='KJV'?'kjv':v.toLowerCase())+':'+book+':'+ch;
+
+  try{
+    const cached=localStorage.getItem(cacheKey);
+    if(cached){
+      const parsed=JSON.parse(cached);
+      const verses=Array.isArray(parsed)?parsed:parsed.verses;
+      if(showVerses(verses))return;
+    }
+  }catch(e){}
+
+  // English API.Bible versions.
+  if(v==='NKJV'||v==='NIV'||v==='NLT'){
+    try{
+      const apiVersion=v.toLowerCase();
+      const apiBook=API_BIBLE_BOOK_IDS[book];
+      const response=await fetch(API_BIBLE_WORKER+'/bible/'+apiVersion+'/'+apiBook+'/'+ch);
+      if(!response.ok)throw new Error('HTTP '+response.status);
+      const result=await response.json();
+      const content=(result&&result.data&&result.data.content)||result&&result.content||'';
+      const verses=(v==='NIV')?parseNIVBibleContent(content,ch):parseApiBibleContent(content,ch);
+      if(showVerses(verses)){
+        try{localStorage.setItem(cacheKey,JSON.stringify({verses:verses,copyright:(result&&result.data&&result.data.copyright)||''}))}catch(e){}
+        return;
+      }
+    }catch(e){}
+  }
+
+  // Cebuano and Ilokano: use the same language-specific online Bible source as the Bible tab.
+  if(v==='CEB'||v==='ILO'){
+    const code=v==='CEB'?'ceb':'ilo';
+    try{
+      const tr=await findOpenBibleTranslation(code);
+      const apiBook=API_BIBLE_BOOK_IDS[book]||book.toUpperCase();
+      const url='https://bible.helloao.org/api/'+encodeURIComponent(tr.id)+'/'+encodeURIComponent(apiBook)+'/'+ch+'.json';
+      const response=await fetch(url);
+      if(!response.ok)throw new Error('HTTP '+response.status);
+      const result=await response.json();
+      const verses=parseOpenBibleChapter(result,ch);
+      if(showVerses(verses)){
+        try{localStorage.setItem(cacheKey,JSON.stringify({verses:verses,copyright:(result&&result.chapter&&result.chapter.copyright)||(result&&result.copyright)||tr.englishName||''}))}catch(e){}
+        return;
+      }
+    }catch(e){}
+    // Never silently substitute English text for a Cebuano/Ilokano selection.
+    dayVerse.textContent=v==='CEB'?'Dili ma-load ang Cebuano nga Kasulatan. Palihog susiha ang internet connection ug sulayi pag-usab.':'Saan a naikarga ti Kasuratan iti Ilokano. Pakisurot ti koneksiyon ti internet ken padasen manen.';
+    return;
+  }
+
+  // Hiligaynon.
+  if(v==='HIL'){
+    try{
+      const url='https://api.midvash.com/v1/ocv-hil/'+encodeURIComponent(midvashBookSlug(book))+'/'+ch;
+      const response=await fetch(url,{headers:{'Accept':'application/json'}});
+      if(!response.ok)throw new Error('HTTP '+response.status);
+      const result=await response.json();
+      const data=result&&result.data;
+      const verses=Array.isArray(data&&data.verses)
+        ? data.verses.map((x,i)=>{
+            const n=x&&typeof x==='object'?(x.verse||x.number||x.id||i+1):i+1;
+            const tx=x&&typeof x==='object'?(x.text||x.content||x.verseText||''):x;
+            return [ch+':'+n,stripBibleMarkup(tx)];
+          }).filter(x=>x[1])
+        : [];
+      if(showVerses(verses)){
+        try{localStorage.setItem(cacheKey,JSON.stringify({verses:verses}))}catch(e){}
+        return;
+      }
+    }catch(e){}
+  }
+
+  // KJV / Tagalog.
+  try{
+    const version=(v==='TAG')?'tagalog':(v==='KJV'?'kjv':v.toLowerCase());
+    const bookNo=getBibleBookNumber(book);
+    if(bookNo){
+      const url='https://api.getbible.net/v2/'+version+'/'+bookNo+'/'+ch+'.json';
+      const response=await fetch(url,{headers:{'Accept':'application/json'}});
+      if(!response.ok)throw new Error('HTTP '+response.status);
+      const result=await response.json();
+      const raw=Array.isArray(result.verses)?result.verses:(result.data&&Array.isArray(result.data.verses)?result.data.verses:[]);
+      const verses=normalizeBibleVerses(raw.map((item,i)=>{
+        const n=item&&typeof item==='object'?(item.verse||item.number||item.id||i+1):i+1;
+        const tx=item&&typeof item==='object'?(item.text||item.content||item.verseText||''):item;
+        return [ch+':'+n,stripBibleMarkup(tx)];
+      }).filter(x=>x[1]),ch);
+      if(showVerses(verses)){
+        try{localStorage.setItem(cacheKey,JSON.stringify({verses:verses,copyright:(result.meta&&result.meta.copyright)||result.copyright||''}))}catch(e){}
+        return;
+      }
+    }
+  }catch(e){}
+
+  // Offline fallback: retain a valid Scripture display rather than showing a
+  // stale previous day's passage. This is only used when today's text cannot
+  // be retrieved from the connected Bible service.
+  const sample=(bibleSamples[v]||bibleSamples.KJV)[0];
+  dayVerse.textContent='“'+sample[1]+'”';
+  dayRef.textContent=bookName(book)+' '+ch+':'+rangeLabel;
+}
+
+const CHAPTER_COUNTS={"Genesis":50,"Exodus":40,"Leviticus":27,"Numbers":36,"Deuteronomy":34,"Joshua":24,"Judges":21,"Ruth":4,"1 Samuel":31,"2 Samuel":24,"1 Kings":22,"2 Kings":25,"1 Chronicles":29,"2 Chronicles":36,"Ezra":10,"Nehemiah":13,"Esther":10,"Job":42,"Psalm":150,"Proverbs":31,"Ecclesiastes":12,"Song of Solomon":8,"Isaiah":66,"Jeremiah":52,"Lamentations":5,"Ezekiel":48,"Daniel":12,"Hosea":14,"Joel":3,"Amos":9,"Obadiah":1,"Jonah":4,"Micah":7,"Nahum":3,"Habakkuk":3,"Zephaniah":3,"Haggai":2,"Zechariah":14,"Malachi":4,"Matthew":28,"Mark":16,"Luke":24,"John":21,"Acts":28,"Romans":16,"1 Corinthians":16,"2 Corinthians":13,"Galatians":6,"Ephesians":6,"Philippians":4,"Colossians":5,"1 Thessalonians":3,"2 Thessalonians":6,"1 Timothy":4,"2 Timothy":3,"Titus":1,"Philemon":1,"Hebrews":13,"James":5,"1 Peter":5,"2 Peter":3,"1 John":5,"2 John":1,"3 John":1,"Jude":1,"Revelation":22};
+function populateChapters(){pageSelected=[];const book=document.getElementById('bibleBook');const c=document.getElementById('bibleChapter');if(!book||!c)return;const max=CHAPTER_COUNTS[book.value]||1;const previous=Number(c.value)||1;c.innerHTML=Array.from({length:max},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('');c.value=String(Math.min(previous,max));if(!c.value)c.value='1';renderBibleChapter()}
+function currentBibleLanguage(){const chosen=localStorage.getItem('bibleLanguage')||'AUTO';return chosen==='AUTO'?(localStorage.getItem('appLanguage')||'EN'):chosen}
+function handleLanguageChoice(value){
+  const supported=['EN','HIL','TAG','CEB','ILO'];
+  if(!supported.includes(value)) value='EN';
+  localStorage.setItem('bibleLanguage',value==='EN'?'AUTO':value);
+  applyLanguage(value);
+  renderBibleChapter();
+  updateDayScripture();
+}
+
+let openBibleTranslationList=null;
+async function findOpenBibleTranslation(langCode){if(!openBibleTranslationList){const r=await fetch('https://bible.helloao.org/api/available_translations.json');if(!r.ok)throw new Error('Translation list unavailable');const j=await r.json();openBibleTranslationList=Array.isArray(j)?j:(j.translations||j.data||[])}const matches=openBibleTranslationList.filter(x=>String(x.language||'').toLowerCase()===langCode);if(!matches.length)throw new Error('No online translation listed for '+langCode);matches.sort((a,b)=>Number(b.numberOfBooks||0)-Number(a.numberOfBooks||0));return matches[0]}
+function parseOpenBibleChapter(result,ch){const root=result&&result.chapter?result.chapter:(result&&result.data?result.data:result);let rows=[];const content=root&&root.content;if(Array.isArray(content)){for(const item of content){if(!item||typeof item!=='object')continue;const typ=String(item.type||'').toLowerCase();if(typ==='verse'||item.number||item.verse){const n=Number(item.number||item.verse||item.verseNumber);let tx='';if(Array.isArray(item.content))tx=item.content.map(x=>typeof x==='string'?x:(x&&x.text)||'').join('');else tx=String(item.text||item.content||'');if(n>0&&tx.trim())rows.push([ch+':'+n,stripBibleMarkup(tx)])}}}if(!rows.length&&Array.isArray(root&&root.verses)){rows=root.verses.map((v,i)=>[ch+':'+Number(v.number||v.verse||i+1),stripBibleMarkup(v.text||v.content||'')]).filter(x=>x[1])}return normalizeBibleVerses(rows,ch)}
+async function renderBibleChapter(){const lang=localStorage.getItem('appLanguage')||'EN',bibleLang=currentBibleLanguage(),ch=Number(document.getElementById('bibleChapter').value||1),book=document.getElementById('bibleBook').value,heading=document.getElementById('chapterHeading'),container=document.getElementById('chapterVerses');heading.textContent=bookName(book)+' '+ch;document.getElementById('addBibleSelectedBtn').classList.toggle('hidden',!activeCreateSession);
+if(bibleLang==='CEB'||bibleLang==='ILO'){const code=bibleLang==='CEB'?'ceb':'ilo',cacheKey='openBible:'+code+':'+book+':'+ch;try{const cached=localStorage.getItem(cacheKey);if(cached){const parsed=JSON.parse(cached);if(Array.isArray(parsed.verses)&&parsed.verses.length){window.loadedBibleVerses=normalizeBibleVerses(parsed.verses,ch);renderBibleRows(window.loadedBibleVerses,book,heading,container,parsed.copyright||'');return}}}catch(e){}container.innerHTML='<div class="muted small">Loading '+(code==='ceb'?'Cebuano':'Ilokano')+' Bible chapter online…</div>';try{const tr=await findOpenBibleTranslation(code);const url='https://bible.helloao.org/api/'+encodeURIComponent(tr.id)+'/'+encodeURIComponent(API_BIBLE_BOOK_IDS[book]||book.toUpperCase())+'/'+ch+'.json';const response=await fetch(url);if(!response.ok)throw new Error('HTTP '+response.status);const result=await response.json();const verses=parseOpenBibleChapter(result,ch);if(!verses.length)throw new Error('No verse text returned');const copyright=(result&&result.chapter&&result.chapter.copyright)||(result&&result.copyright)||tr.englishName||'';window.loadedBibleVerses=verses;try{localStorage.setItem(cacheKey,JSON.stringify({verses,copyright}))}catch(e){}renderBibleRows(verses,book,heading,container,copyright)}catch(e){window.loadedBibleVerses=[];container.innerHTML='<div class="empty">Could not load this '+(code==='ceb'?'Cebuano':'Ilokano')+' Bible chapter online. The selected translation may not be available from the service. Please check your internet connection and try again.</div>'}return}
+
+if(bibleLang==='HIL'){const cacheKey='hilBible:'+book+':'+ch;try{const cached=localStorage.getItem(cacheKey);if(cached){const parsed=JSON.parse(cached);if(Array.isArray(parsed.verses)&&parsed.verses.length){const rows=normalizeBibleVerses(parsed.verses,ch);if(rows.length){if(Number(rows[0][0].split(':')[1])!==1){localStorage.removeItem(cacheKey)}else{window.loadedBibleVerses=rows;renderBibleRows(rows,book,heading,container,parsed.copyright);return}}}}}catch(e){}container.innerHTML='<div class="muted small">Nagakarga sang kapitulo sang Biblia…</div>';try{const url='https://api.midvash.com/v1/ocv-hil/'+encodeURIComponent(midvashBookSlug(book))+'/'+ch;const response=await fetch(url,{headers:{'Accept':'application/json'}});if(!response.ok)throw new Error('HTTP '+response.status);const result=await response.json();const data=result&&result.data;const verses=Array.isArray(data&&data.verses)?normalizeBibleVerses(data.verses.map((v,i)=>{const n=(v&&typeof v==='object')?(v.verse||v.number||v.id||i+1):i+1;const tx=(v&&typeof v==='object')?(v.text||v.content||v.verseText||''):v;return [ch+':'+n,stripBibleMarkup(tx)]}).filter(v=>v[1]),ch):[];if(!verses.length)throw new Error('No verses');const copyright=(result.meta&&result.meta.copyright)||'Biblica® Libre Ang Pulong Sang Dios™ — Copyright © 1996, 2006, 2011, 2022 sang Biblica, Inc. CC BY-SA 4.0';window.loadedBibleVerses=verses;try{localStorage.setItem(cacheKey,JSON.stringify({verses,copyright}))}catch(e){}renderBibleRows(verses,book,heading,container,copyright)}catch(e){window.loadedBibleVerses=[];container.innerHTML='<div class="empty">'+hilBibleLoadError()+'</div>'}return}
+const selectedVersion=currentVersion();if(bibleLang!=='TAG'&&bibleLang!=='HIL'&&['NKJV','NIV','NLT'].includes(selectedVersion)){const apiVersion=selectedVersion.toLowerCase(),apiBook=API_BIBLE_BOOK_IDS[book],cacheKey='apiBible:v39:'+apiVersion+':'+book+':'+ch;try{const cached=localStorage.getItem(cacheKey);if(cached){const parsed=JSON.parse(cached);if(Array.isArray(parsed.verses)&&parsed.verses.length){const rows=normalizeBibleVerses(parsed.verses,ch);if(rows.length){window.loadedBibleVerses=rows;renderBibleRows(rows,book,heading,container,parsed.copyright||'');return}}}}catch(e){}container.innerHTML='<div class="muted small">Loading Bible chapter…</div>';try{if(!apiBook)throw new Error('Unknown book');const response=await fetch(API_BIBLE_WORKER+'/bible/'+apiVersion+'/'+apiBook+'/'+ch);if(!response.ok)throw new Error('HTTP '+response.status);const result=await response.json();const content=result&&result.data&&result.data.content||result&&result.content||'';const verses=(selectedVersion==='NIV')?parseNIVBibleContent(content,ch):parseApiBibleContent(content,ch);if(!verses.length)throw new Error('No verses');const copyright=(result&&result.data&&result.data.copyright)||'';window.loadedBibleVerses=verses;try{localStorage.setItem(cacheKey,JSON.stringify({verses,copyright}))}catch(e){}renderBibleRows(verses,book,heading,container,copyright)}catch(e){window.loadedBibleVerses=[];container.innerHTML='<div class="empty">The Bible chapter could not be loaded. Please check your internet connection and try again.</div>'}return}const version=(bibleLang==='TAG')?'tagalog':(selectedVersion==='KJV'?'kjv':selectedVersion.toLowerCase());const cacheKey='getBible:'+version+':'+book+':'+ch;try{const cached=localStorage.getItem(cacheKey);if(cached){const parsed=JSON.parse(cached);if(Array.isArray(parsed.verses)&&parsed.verses.length){const rows=normalizeBibleVerses(parsed.verses,ch);if(rows.length){window.loadedBibleVerses=rows;renderBibleRows(rows,book,heading,container,parsed.copyright||'');return}}}}catch(e){}container.innerHTML='<div class="muted small">'+(lang==='TAG'?'Naglo-load ng kabanata ng Biblia…':'Loading Bible chapter…')+'</div>';try{const bookNo=getBibleBookNumber(book);if(!bookNo)throw new Error('Unknown book');const url='https://api.getbible.net/v2/'+version+'/'+bookNo+'/'+ch+'.json';const response=await fetch(url,{headers:{'Accept':'application/json'}});if(!response.ok)throw new Error('HTTP '+response.status);const result=await response.json();const raw=Array.isArray(result.verses)?result.verses:(result.data&&Array.isArray(result.data.verses)?result.data.verses:[]);const verses=normalizeBibleVerses(raw.map((v,i)=>{const n=(v&&typeof v==='object')?(v.verse||v.number||v.id||i+1):i+1;const tx=(v&&typeof v==='object')?(v.text||v.content||v.verseText||''):v;return [ch+':'+n,stripBibleMarkup(tx)]}).filter(v=>v[1]),ch);if(!verses.length)throw new Error('No verses');const copyright=(result.meta&&result.meta.copyright)||result.copyright||'';window.loadedBibleVerses=verses;try{localStorage.setItem(cacheKey,JSON.stringify({verses,copyright}))}catch(e){}renderBibleRows(verses,book,heading,container,copyright)}catch(e){window.loadedBibleVerses=[];container.innerHTML='<div class="empty">'+(lang==='TAG'?'Hindi ma-load ang kabanata ng Biblia. Pakisuri ang iyong koneksyon sa internet at subukan muli.':'The Bible chapter could not be loaded. Please check your internet connection and try again.')+'</div>'}}
+const API_BIBLE_WORKER='https://jilc-bible-api.erwinalcamphorjr.workers.dev';
+const API_BIBLE_BOOK_IDS={"Genesis":"GEN","Exodus":"EXO","Leviticus":"LEV","Numbers":"NUM","Deuteronomy":"DEU","Joshua":"JOS","Judges":"JDG","Ruth":"RUT","1 Samuel":"1SA","2 Samuel":"2SA","1 Kings":"1KI","2 Kings":"2KI","1 Chronicles":"1CH","2 Chronicles":"2CH","Ezra":"EZR","Nehemiah":"NEH","Esther":"EST","Job":"JOB","Psalm":"PSA","Proverbs":"PRO","Ecclesiastes":"ECC","Song of Solomon":"SNG","Isaiah":"ISA","Jeremiah":"JER","Lamentations":"LAM","Ezekiel":"EZK","Daniel":"DAN","Hosea":"HOS","Joel":"JOL","Amos":"AMO","Obadiah":"OBA","Jonah":"JON","Micah":"MIC","Nahum":"NAM","Habakkuk":"HAB","Zephaniah":"ZEP","Haggai":"HAG","Zechariah":"ZEC","Malachi":"MAL","Matthew":"MAT","Mark":"MRK","Luke":"LUK","John":"JHN","Acts":"ACT","Romans":"ROM","1 Corinthians":"1CO","2 Corinthians":"2CO","Galatians":"GAL","Ephesians":"EPH","Philippians":"PHP","Colossians":"COL","1 Thessalonians":"1TH","2 Thessalonians":"2TH","1 Timothy":"1TI","2 Timothy":"2TI","Titus":"TIT","Philemon":"PHM","Hebrews":"HEB","James":"JAS","1 Peter":"1PE","2 Peter":"2PE","1 John":"1JN","2 John":"2JN","3 John":"3JN","Jude":"JUD","Revelation":"REV"};
+function normalizeBibleVerses(rows,ch){return (Array.isArray(rows)?rows:[]).map((v,i)=>{if(!Array.isArray(v)||v.length<2)return null;let ref=String(v[0]||'');let m=ref.match(/(?:^|:)(\d+)$/);let n=m?Number(m[1]):(i+1);let tx=stripBibleMarkup(String(v[1]||'')).replace(/\s+/g,' ').trim();return tx&&Number.isFinite(n)?[ch+':'+n,tx]:null}).filter(Boolean).sort((a,b)=>Number(a[0].split(':')[1])-Number(b[0].split(':')[1]))}
+function parseNIVBibleContent(content,ch){
+  const html=String(content||'');
+  if(!html.trim())return [];
+  const doc=new DOMParser().parseFromString('<div>'+html+'</div>','text/html');
+  const root=doc.body.firstElementChild||doc.body;
+  const groups=new Map();
+  const add=(num,text)=>{
+    num=Number(num);
+    let t=stripBibleMarkup(String(text||'')).replace(/\s+/g,' ').trim();
+    if(!Number.isFinite(num)||num<1||!t)return;
+    t=t.replace(/^\s*[0-9]{1,3}[.)]?\s*/,'').trim();
+    if(!groups.has(num))groups.set(num,[]);
+    const arr=groups.get(num);
+    if(!arr.includes(t))arr.push(t);
+  };
+  const verseNumber=(value)=>{
+    const s=String(value||'');
+    let m=s.match(new RegExp('(?:^|[.\\s:_-])'+String(ch)+'[.\\s:_-]+([0-9]+)(?:$|[^0-9])','i'));
+    if(m)return Number(m[1]);
+    m=s.match(new RegExp('(?:^|[.\\s:_-])([0-9]+)$'));
+    return m?Number(m[1]):null;
+  };
+  const textWithoutNumber=(node)=>{
+    const clone=node.cloneNode(true);
+    clone.querySelectorAll('.v,[data-number]').forEach(el=>el.remove());
+    return (clone.textContent||'').replace(/^\s*[0-9]{1,3}[.)]?\s*/,'').replace(/\s+/g,' ').trim();
+  };
+
+  // NIV is handled independently because API.Bible can split one verse across
+  // verse-span, data-vid, and data-sid elements. First collect every explicit
+  // verse marker in document order.
+  const markers=[];
+  root.querySelectorAll('[data-verse-id],[data-vid],[data-sid]').forEach(el=>{
+    const marker=el.getAttribute('data-verse-id')||el.getAttribute('data-vid')||el.getAttribute('data-sid');
+    const num=verseNumber(marker);
+    if(num==null)return;
+    if(markers.some(x=>x.el===el))return;
+    markers.push({el,num});
+  });
+
+  // Primary extraction: each verse-span belongs to its own verse.
+  root.querySelectorAll('[data-verse-id]').forEach(el=>{
+    const num=verseNumber(el.getAttribute('data-verse-id'));
+    if(num!=null)add(num,textWithoutNumber(el));
+  });
+
+  // Secondary extraction: paragraphs/blocks tagged with data-vid or data-sid
+  // can contain continuation text that is not inside the verse-span.
+  root.querySelectorAll('[data-vid],[data-sid]').forEach(el=>{
+    const marker=el.getAttribute('data-vid')||el.getAttribute('data-sid');
+    const num=verseNumber(marker);
+    if(num==null)return;
+    if(el.matches('[data-verse-id]'))return;
+    add(num,textWithoutNumber(el));
+  });
+
+  // Final NIV-specific fallback: walk the text between explicit verse markers.
+  // This preserves verses even when API.Bible changes the nesting of the NIV
+  // HTML while retaining the verse-number markers.
+  for(let i=0;i<markers.length;i++){
+    const current=markers[i];
+    const next=markers[i+1];
+    let text='';
+    const range=doc.createRange();
+    range.selectNodeContents(current.el);
+    const ownText=range.toString();
+    text+=ownText+' ';
+    if(next){
+      const between=doc.createRange();
+      between.setStartAfter(current.el);
+      between.setEndBefore(next.el);
+      text+=between.toString();
+    }
+    text=text.replace(/^\s*[0-9]{1,3}[.)]?\s*/,'').replace(/\s+/g,' ').trim();
+    if(text)add(current.num,text);
+  }
+
+  // Some NIV responses expose the verse marker as plain visible text. Use it
+  // only when no explicit marker was found for that verse, avoiding changes to
+  // the handling of other Bible versions.
+  if(!markers.length){
+    const walker=doc.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    let node;
+    while(node=walker.nextNode()){
+      const text=String(node.nodeValue||'').replace(/\s+/g,' ').trim();
+      const m=text.match(/^([0-9]{1,3})\s+(.+)$/);
+      if(m)add(Number(m[1]),m[2]);
+    }
+  }
+
+  const rows=[];
+  for(const [num,parts] of groups.entries()){
+    const seen=new Set();
+    const cleanParts=[];
+    for(let part of parts){
+      part=part.replace(/^\s*[0-9]{1,3}[.)]?\s*/,'').replace(/\s+/g,' ').trim();
+      if(!part||seen.has(part))continue;
+      seen.add(part);
+      cleanParts.push(part);
+    }
+    const text=cleanParts.join(' ').replace(/\s+([,.;!?])/g,'$1').trim();
+    if(text)rows.push([ch+':'+num,text]);
+  }
+  return normalizeBibleVerses(rows,ch);
+}
+function parseApiBibleContent(content,ch){
+  const html=String(content||'');
+  if(!html.trim())return [];
+  const doc=new DOMParser().parseFromString('<div>'+html+'</div>','text/html');
+  const root=doc.body.firstElementChild||doc.body;
+  const groups=new Map();
+  const add=(num,text)=>{
+    num=Number(num);
+    text=stripBibleMarkup(String(text||'')).replace(/\s+/g,' ').trim();
+    if(!Number.isFinite(num)||num<1||!text)return;
+    if(!groups.has(num))groups.set(num,[]);
+    const arr=groups.get(num);
+    if(!arr.includes(text))arr.push(text);
+  };
+  const nodes=[...root.querySelectorAll('.verse-span[data-verse-id]')];
+  for(const node of nodes){
+    const m=String(node.getAttribute('data-verse-id')||'').match(/(?:^|[.\-_:\s])(?:v(?:erse)?[._\-:]?)?(\d+)$/i);
+    if(!m)continue;
+    const num=Number(m[1]);
+    let tx=node.textContent||'';
+    if(node.querySelector('.v,[data-number]'))tx=tx.replace(/^\s*\d{1,3}\s*/,'');
+    if(tx.trim())add(num,tx);
+  }
+  return normalizeBibleVerses([...groups.entries()].map(([num,texts])=>[ch+':'+num,texts.join(' ')]),ch);
+}
+
+function getBibleBookNumber(book){const books=["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalm","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation"];const i=books.indexOf(book);return i>=0?i+1:null}
+function midvashBookSlug(book){const map={"Genesis":"genesis","Exodus":"exodus","Leviticus":"leviticus","Numbers":"numbers","Deuteronomy":"deuteronomy","Joshua":"joshua","Judges":"judges","Ruth":"ruth","1 Samuel":"1-samuel","2 Samuel":"2-samuel","1 Kings":"1-kings","2 Kings":"2-kings","1 Chronicles":"1-chronicles","2 Chronicles":"2-chronicles","Ezra":"ezra","Nehemiah":"nehemiah","Esther":"esther","Job":"job","Psalm":"psalms","Proverbs":"proverbs","Ecclesiastes":"ecclesiastes","Song of Solomon":"song-of-solomon","Isaiah":"isaiah","Jeremiah":"jeremiah","Lamentations":"lamentations","Ezekiel":"ezekiel","Daniel":"daniel","Hosea":"hosea","Joel":"joel","Amos":"amos","Obadiah":"obadiah","Jonah":"jonah","Micah":"micah","Nahum":"nahum","Habakkuk":"habakkuk","Zephaniah":"zephaniah","Haggai":"haggai","Zechariah":"zechariah","Malachi":"malachi","Matthew":"matthew","Mark":"mark","Luke":"luke","John":"john","Acts":"acts","Romans":"romans","1 Corinthians":"1-corinthians","2 Corinthians":"2-corinthians","Galatians":"galatians","Ephesians":"ephesians","Philippians":"philippians","Colossians":"colossians","1 Thessalonians":"1-thessalonians","2 Thessalonians":"2-thessalonians","1 Timothy":"1-timothy","2 Timothy":"2-timothy","Titus":"titus","Philemon":"philemon","Hebrews":"hebrews","James":"james","1 Peter":"1-peter","2 Peter":"2-peter","1 John":"1-john","2 John":"2-john","3 John":"3-john","Jude":"jude","Revelation":"revelation"};return map[book]||book.toLowerCase().replace(/\s+/g,'-')}
+function stripBibleMarkup(text){return String(text||'').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").trim()}
+function hilBibleLoadError(){return 'Indi ma-load ang kapitulo sang Biblia. Palihog susihon ang imo koneksyon sa internet kag tilawi liwat.'}
+function renderBibleRows(rows,book,heading,container,copyright){heading.textContent=bookName(book)+' '+Number(document.getElementById('bibleChapter').value||1);container.innerHTML=rows.map(v=>{const key=book+'|'+v[0];return '<div class="bible-verse '+(pageSelected.includes(key)?'selected':'')+'" onclick="toggleBibleVerse(\''+key+'\')"><span class="bible-num">'+v[0].split(':')[1]+'.</span>'+esc(v[1])+'</div>'}).join('')+(copyright?'<div class="muted small" style="margin-top:12px;line-height:1.4">'+esc(copyright)+'</div>':'');document.getElementById('addBibleSelectedBtn').classList.toggle('hidden',!activeCreateSession)}
+function toggleBibleVerse(key){if(!activeCreateSession)return;pageSelected.includes(key)?pageSelected=pageSelected.filter(x=>x!==key):pageSelected.push(key);renderBibleChapter()}
+function newDevotional(){window.editingDevotionalIndex=null;['scripture','observation','application','prayer'].forEach(id=>document.getElementById(id).value='');setDevotionalDate();show('create')}
+function show(s){document.querySelectorAll('.screen').forEach(e=>e.classList.toggle('active',e.id===s));document.querySelectorAll('.nav').forEach(e=>e.classList.toggle('active',e.dataset.s===s));if(s!=='bible'&&s!=='create')activeCreateSession=false;if(s==='bible'){populateChapters()}if(s==='saved'){renderSaved()}if(s==='churchNotes'){renderChurchNotes();updateChurchNoteDate()}}
+function openBibleFromCreate(){activeCreateSession=true;pageSelected=[];show('bible')}
+function readDayScripture(){activeCreateSession=false;pageSelected=[];show('bible');document.getElementById('bibleBook').value='Philippians';populateChapters();document.getElementById('bibleChapter').value='1';renderBibleChapter()}
+function addBiblePageSelected(){const t=UI[localStorage.getItem('appLanguage')||'EN']||UI.EN;if(!pageSelected.length){toast(t.selectVerse);return}const verses=window.loadedBibleVerses||currentVerses(),book=document.getElementById('bibleBook').value;const out=pageSelected.map(k=>{const ref=k.split('|')[1],v=verses.find(x=>x[0]===ref);return v?bookName(book)+' '+v[0]+' — '+v[1]:''}).filter(Boolean).join('\n\n');const f=document.getElementById('scripture');f.value=f.value.trim()?f.value.trim()+'\n\n'+out:out;pageSelected=[];activeCreateSession=false;show('create');toast(t.addedMsg)}
+
+// Cebuano and Ilokano interface translations. English is used only for any uncommon legacy key not yet translated.
+UI.CEB={...UI.EN,settingsTitle:'Mga Setting',welcome:'Bulahan ka',nameWelcome:'Maayong pag-abot!',namePrompt:'Unsa ang imong ngalan?',namePlaceholder:'Isulod ang imong ngalan',continueBtn:'Padayon',appLanguage:'Pinulongan sa App',defaultBibleVersion:'Default nga Bersiyon sa Bibliya',localBibleAuto:'Ang bersiyon sa Bibliya awtomatikong ipahiangay sa pinulongan sa app.',offlineUse:'Offline nga Paggamit',offlineText:'Ang imong mga devotional ug setting sa app gitipigan niini nga device. Ang Kasulatan sa Bibliya makuha pinaagi sa konektadong serbisyo sa Bibliya.',about:'Mahitungod sa App',home:'Balay',bible:'Bibliya',create:'Paghimo',saved:'Gitipigan',scriptureDay:'Kasulatan sa Adlaw',today:'Karong Adlawa',recent:'Akong Bag-ong mga Devotional',newBtn:'＋ Bag-o',readBible:'📖 Basaha sa Bibliya',book:'Libro',chapter:'Kapitulo',verses:'Mga Bersikulo',observation:'Obserbasyon',application:'Pag-aplikar',prayer:'Pag-ampo',scripture:'Kasulatan',addBible:'📖 Idugang ang Kasulatan gikan sa Bibliya',createDev:'Paghimo og Devotional',saveDev:'I-save ang Devotional',clear:'Hawani',close:'Sirad-i',bookChapter:'Libro ug Kapitulo',addSelected:'Idugang ang Napiling mga Bersikulo',view:'Tan-awa',edit:'Usba',delete:'Papas-a',viewDevotional:'Tan-awa ang Devotional',editDevotional:'Usba ang Devotional',dayTitle:'Salig sa Ginoo sa Tibuok Mong Kasingkasing',emptyDev:'Pagdugang una og sulod sa imong devotional.',savedMsg:'Na-save ang devotional.',clearedMsg:'Nahaw-as na ang tanang gitipigan nga devotional.',clearConfirm:'Hawason ba ang tanang gitipigan nga devotional?',selectVerse:'Pilia ang labing menos usa ka bersikulo.',addedMsg:'Nadugang ang mga bersikulo sa Kasulatan.',emptyNotes:'Wala pay mga nota.',filterSaved:'Salain ang Gitipigan nga mga Devotional',allMonths:'Tanang Bulan',clearFilter:'Hawani ang Salaan',dateFilter:'Petsa',chooseDate:'Pagpili og petsa',noMatches:'Walay devotional nga nakit-an niini nga salaan.',noSaved:'Wala pay gitipigan nga devotional.',createFirst:'Paghimo sa imong una.',noRecent:'Dinhi makita ang imong gitipigan nga mga devotional.',yesterdayScripture:'Kasulatan Kagahapon'};
+UI.ILO={...UI.EN,settingsTitle:'Dagiti Setting',welcome:'Nabendisionan ka',nameWelcome:'Naragsak nga isasangbay!',namePrompt:'Ania ti naganmo?',namePlaceholder:'I-type ti naganmo',continueBtn:'Agtultuloy',appLanguage:'Pagsasao ti App',defaultBibleVersion:'Pangrugian a Bersion ti Biblia',localBibleAuto:'Ti bersion ti Biblia ket automatiko a maitunos iti pagsasao ti app.',offlineUse:'Panagusar nga Offline',offlineText:'Dagiti naidulin a devotional ken setting ti app ket maidulin iti daytoy a device. Ti Kasuratan ket maala babaen iti nakasilpo a serbisyo ti Biblia.',about:'Maipapan iti App',home:'Pagtaengan',bible:'Biblia',create:'Agaramid',saved:'Naidulin',scriptureDay:'Kasuratan ti Aldaw',today:'Ita nga Aldaw',recent:'Dagiti Kabbaro a Devotional Ko',newBtn:'＋ Baro',readBible:'📖 Basaen iti Biblia',book:'Libro',chapter:'Kapitulo',verses:'Dagiti Bersikulo',observation:'Paliiwen',application:'Panangipakat',prayer:'Kararag',scripture:'Kasuratan',addBible:'📖 Inayon ti Kasuratan manipud iti Biblia',createDev:'Agaramid iti Devotional',saveDev:'Idulin ti Devotional',clear:'Linennek',close:'Isardeng',bookChapter:'Libro ken Kapitulo',addSelected:'Inayon dagiti Napili a Bersikulo',view:'Kitaen',edit:'Baliwan',delete:'Punasen',viewDevotional:'Kitaen ti Devotional',editDevotional:'Baliwan ti Devotional',dayTitle:'Agtalek iti Apo iti Sibubukel a Pusom',emptyDev:'Inayon pay ti linaon iti devotional mo.',savedMsg:'Naidulin ti devotional.',clearedMsg:'Nailinis dagiti naidulin a devotional.',clearConfirm:'Linennek amin dagiti naidulin a devotional?',selectVerse:'Pilien ti maysa wenno ad-adu pay a bersikulo.',addedMsg:'Naikabil dagiti bersikulo iti Kasuratan.',emptyNotes:'Awan pay dagiti nota.',filterSaved:'Salain dagiti Naidulin a Devotional',allMonths:'Amin a Bulan',clearFilter:'Linennek ti Salaan',dateFilter:'Petsa',chooseDate:'Pilien ti petsa',noMatches:'Awan ti devotional a nasarakan iti daytoy a salaan.',noSaved:'Awan pay ti naidulin a devotional.',createFirst:'Aramiden ti umuna a devotional mo.',noRecent:'Ditoy makita dagiti naidulin a devotional mo.',yesterdayScripture:'Kasuratan Idi Kalman'};
+
+function updateWelcome(){const lang=localStorage.getItem('appLanguage')||'EN';const t=UI[lang]||UI.EN;const name=(localStorage.getItem('userName')||'').trim();const el=document.getElementById('welcomeGreeting');if(el)el.textContent=name?t.welcome+' '+name.toUpperCase()+'!':'';}
+function openNamePrompt(){const lang=localStorage.getItem('appLanguage')||'EN';const t=UI[lang]||UI.EN;const m=document.getElementById('nameModal');if(!m)return;document.getElementById('nameModalTitle').textContent=t.nameWelcome;document.getElementById('nameModalText').textContent=t.namePrompt;document.getElementById('userNameInput').placeholder=t.namePlaceholder;document.getElementById('nameSaveBtn').textContent=t.continueBtn;document.getElementById('userNameInput').value=localStorage.getItem('userName')||'';m.classList.add('show');setTimeout(()=>document.getElementById('userNameInput').focus(),50);}
+function saveUserName(){const input=document.getElementById('userNameInput');const name=(input&&input.value||'').trim();if(!name){input&&input.focus();return}localStorage.setItem('userName',name);document.getElementById('nameModal').classList.remove('show');updateWelcome();}
+function applyLanguage(lang){
+  lang=(['EN','HIL','TAG','CEB','ILO'].includes(lang))?lang:'EN';
+  localStorage.setItem('appLanguage',lang);
+  updateWelcome();
+  if(lang==='HIL') localStorage.setItem('defaultBibleVersion','HIL');
+  if(lang==='TAG') localStorage.setItem('defaultBibleVersion','TAG');
+  if(lang==='CEB') localStorage.setItem('defaultBibleVersion','CEB');
+  if(lang==='ILO') localStorage.setItem('defaultBibleVersion','ILO');
+  const t=UI[lang];
+  const en=lang==='EN';
+  document.getElementById('englishVersionWrap').classList.toggle('hidden',!en);
+  document.getElementById('localVersionNotice').classList.toggle('hidden',en);
+  document.getElementById('settingsBibleVersion').value=localStorage.getItem('defaultBibleVersion')||'KJV';
+  document.getElementById('appLanguage').value=lang;
+  
+  document.documentElement.lang=({EN:'en',HIL:'hil',TAG:'fil',CEB:'ceb',ILO:'ilo'})[lang]||'en';
+  document.title='Devotional App — '+({EN:'Phone Prototype v1',HIL:'Prototype sa Telepono',TAG:'Prototype para sa Telepono',CEB:'Prototype sa Telepono',ILO:'Prototype ti Telepono'})[lang];
+  const set=(id,val)=>{const e=document.getElementById(id);if(e)e.textContent=val};
+  set('brand',lang==='CEB'?'✦ Pagpamalandong':lang==='ILO'?'✦ Panagpanunot':lang==='HIL'?'✦ Pamalandong':lang==='TAG'?'✦ Debosyon':'✦ Devotional'); set('splashAppTitle',lang==='CEB'?'Pagpamalandong':lang==='ILO'?'Panagpanunot':lang==='HIL'?'Pamalandong':lang==='TAG'?'Debosyon':'Devotional'); set('dayLabel', t.scriptureDay); set('todayDate', formatTodayDate()); set('yesterdayScriptureLabel', t.yesterdayScripture||'Yesterday\'s Scripture'); set('dayTitle', t.dayTitle); set('recentTitle',t.recent); set('newBtn',t.newBtn); set('readDayBtn',t.readBible);
+  set('bibleTitle','📖 '+t.bible); set('bibleBookLabel',t.book); set('bibleChapterLabel',t.chapter); set('bibleVersesLabel',t.verses); set('addBibleSelectedBtn',t.addSelected);
+  set('createTitle',t.createDev); set('createScriptureLabel',t.scripture); set('observationLabel',t.observation); set('applicationLabel',t.application); set('prayerLabel',t.prayer); set('addBibleBtn',t.addBible); set('saveBtn',t.saveDev);
+  set('savedTitle',t.saved); set('clearBtn',t.clear); set('savedFilterLabel',t.filterSaved); set('savedDateChooseLabel',t.chooseDate); const df=document.getElementById('savedDateFilter'); if(df) df.setAttribute('aria-label',t.chooseDate); set('clearSavedFilterBtn',t.clearFilter); set('viewScriptureLabel',t.scripture); set('viewObservationLabel',t.observation); set('viewApplicationLabel',t.application); set('viewPrayerLabel',t.prayer); set('prototypeFooter',lang==='HIL'?'Devotional App • Prototype sa Telepono':lang==='TAG'?'Devotional App • Prototype para sa Telepono':'Devotional App • Phone Prototype v1');
+  const placeholders={EN:{scripture:'Write or select your Scripture...',observation:'What is God teaching through this passage?',application:'How will I live this out today?',prayer:'Write your prayer...'},HIL:{scripture:'Isulat ukon pilia ang imo Kasulatan...',observation:'Ano ang ginatudlo sang Dios paagi sa sini nga teksto?',application:'Paano ko ini ipangabuhi subong nga adlaw?',prayer:'Isulat ang imo pangamuyo...'},TAG:{scripture:'Isulat o piliin ang iyong Kasulatan...',observation:'Ano ang itinuturo ng Diyos sa pamamagitan ng talatang ito?',application:'Paano ko ito maisasabuhay ngayon?',prayer:'Isulat ang iyong panalangin...'},CEB:{scripture:'Isulat o pilia ang imong Kasulatan...',observation:'Unsa ang gitudlo sa Diyos pinaagi niini nga teksto?',application:'Unsaon nako kini pagkinabuhi karong adlawa?',prayer:'Isulat ang imong pag-ampo...'},ILO:{scripture:'Isurat wenno pilien ti Kasuratanmo...',observation:'Ania ti isursuro ti Dios babaen iti daytoy a teksto?',application:'Kasano ko daytoy nga ipatungpal ita nga aldaw?',prayer:'Isurat ti kararagmo...'}}[lang];
+  ['scripture','observation','application','prayer'].forEach(id=>document.getElementById(id).placeholder=placeholders[id]);
+  const navLabels={EN:['Home','Bible','Create','Saved','Church Notes','Settings'],HIL:['Home','Biblia','Maghimo','Natipigan','Mga Nota sa Iglesia','Settings'],TAG:['Home','Biblia','Gumawa','Naka-save','Mga Tala sa Simbahan','Mga Setting'],CEB:['Balay','Bibliya','Paghimo','Gitipigan','Mga Nota sa Simbahan','Mga Setting'],ILO:['Pagtaengan','Biblia','Agaramid','Naidulin','Dagiti Nota ti Iglesia','Dagiti Setting']}[lang];document.querySelectorAll('.nav').forEach((e,i)=>{if(e.lastChild)e.lastChild.textContent=navLabels[i]||''});
+  set('churchNotesTitle',({EN:'Church Notes',HIL:'Mga Nota sa Iglesia',TAG:'Mga Tala sa Simbahan',CEB:'Mga Nota sa Simbahan',ILO:'Dagiti Nota ti Iglesia'})[lang]);set('churchNotesIntro',({EN:'Write and keep notes from church services, sermons, Bible studies, and fellowship.',HIL:'Isulat kag tipigi ang mga nota halin sa pagsimba, wali, pagtuon sang Biblia, kag pagpakig-upod.',TAG:'Isulat at itago ang mga tala mula sa pagsamba, sermon, pag-aaral ng Biblia, at pakikisama.',CEB:'Isulat ug tipigi ang mga nota gikan sa pagsimba, wali, pagtuon sa Bibliya, ug panag-uban.',ILO:'Isurat ken idulin dagiti nota manipud iti panagdayaw, sermon, panagadal iti Biblia, ken pannakikadua.'})[lang]);set('churchNoteTitleLabel',({EN:'Note title (optional)',HIL:'Titulo sang nota (opsyonal)',TAG:'Pamagat ng tala (opsyonal)',CEB:'Titulo sa nota (opsyonal)',ILO:'Pamagat ti nota (optional)'})[lang]);set('churchNoteBodyLabel',({EN:'Your notes',HIL:'Imo mga nota',TAG:'Iyong mga tala',CEB:'Imong mga nota',ILO:'Dagiti notam'})[lang]);set('saveChurchNoteBtn',({EN:'Save Note',HIL:'Tipigi ang Nota',TAG:'I-save ang Tala',CEB:'I-save ang Nota',ILO:'Idulin ti Nota'})[lang]);set('cancelChurchNoteBtn',({EN:'Cancel Edit',HIL:'Kanselahon ang Pag-edit',TAG:'Kanselahin ang Pag-edit',CEB:'Kanselahon ang Pag-usab',ILO:'Kanselaen ti Panagbalbaliw'})[lang]);set('savedChurchNotesTitle',({EN:'Saved Church Notes',HIL:'Mga Natipigan nga Nota sa Iglesia',TAG:'Mga Naka-save na Tala sa Simbahan',CEB:'Mga Gitipigan nga Nota sa Simbahan',ILO:'Dagiti Naidulin a Nota ti Iglesia'})[lang]);set('churchNotesFilterLabel',({EN:'Filter by date',HIL:'Salain suno sa petsa',TAG:'I-filter ayon sa petsa',CEB:'Salaina sumala sa petsa',ILO:'Salain babaen ti petsa'})[lang]);set('churchNotesDateLabel',({EN:'Date (mm/dd/yyyy)',HIL:'Petsa (mm/dd/yyyy)',TAG:'Petsa (mm/dd/yyyy)',CEB:'Petsa (mm/dd/yyyy)',ILO:'Petsa (mm/dd/yyyy)'})[lang]);set('clearChurchNotesFilterBtn',({EN:'Clear Date Filter',HIL:'Kagawad ang Salain sang Petsa',TAG:'I-clear ang Filter ng Petsa',CEB:'Hawani ang Filter sa Petsa',ILO:'Linennek ti Salain ti Petsa'})[lang]);set('churchNoteViewCloseBtn',({EN:'Close',HIL:'Isira',TAG:'Isara',CEB:'Sirad-i',ILO:'Irikep'})[lang]);document.getElementById('churchNoteTitle').placeholder=({EN:'Example: Sunday Service — Faith in God',HIL:'Pananglitan: Pagsimba sa Domingo — Pagsalig sa Dios',TAG:'Halimbawa: Pagsamba sa Linggo — Pananampalataya sa Diyos',CEB:'Pananglitan: Domingo nga Pagsimba — Pagtuo sa Diyos',ILO:'Pagwadan: Domingo a Panagdayaw — Pammati iti Dios'})[lang];document.getElementById('churchNoteBody').placeholder=({EN:'Write your church notes here...',HIL:'Isulat diri ang imo mga nota sa iglesia...',TAG:'Isulat dito ang iyong mga tala sa simbahan...',CEB:'Isulat dinhi ang imong mga nota sa simbahan...',ILO:'Isurat ditoy dagiti notam iti iglesia...'})[lang];
+  document.querySelector('#settings h2').textContent=t.settingsTitle;
+  document.querySelector('#settings .label').textContent=t.appLanguage;
+  document.querySelector('[data-i18n="defaultBibleVersion"]').textContent=t.defaultBibleVersion;
+  document.querySelector('[data-i18n="localBibleAuto"]').textContent=t.localBibleAuto;
+  document.querySelector('[data-i18n="offlineUse"]').textContent=t.offlineUse;
+  document.querySelector('[data-i18n="offlineText"]').textContent=t.offlineText;
+  document.querySelector('[data-i18n="about"]').textContent=t.about;
+  document.getElementById('settingsBibleVersion').options[0].text='KJV — King James Version';
+  populateBooks(); updateDayScripture(); renderBibleChapter(); setDevotionalDate(); renderRecent(); renderSaved();
+}
+function applyDefaultVersion(v){localStorage.setItem('defaultBibleVersion',v);if((localStorage.getItem('appLanguage')||'EN')==='EN'){renderBibleChapter();updateDayScripture()}}
+let editingDevotionalIndex=null;
+function viewDevotional(i){const a=JSON.parse(localStorage.getItem('devotionals')||'[]');const d=a[i];if(!d)return;editingDevotionalIndex=i;const t=UI[localStorage.getItem('appLanguage')||'EN']||UI.EN;document.getElementById('devModalTitle').textContent=t.viewDevotional;document.getElementById('devModalDate').textContent=formatDevotionalDate(d.dateISO||d.date);document.getElementById('viewScripture').textContent=d.scripture||t.emptyNotes;document.getElementById('viewObservation').textContent=d.observation||t.emptyNotes;document.getElementById('viewApplication').textContent=d.application||t.emptyNotes;document.getElementById('viewPrayer').textContent=d.prayer||t.emptyNotes;document.getElementById('viewScriptureLabel').textContent=t.scripture;document.getElementById('viewObservationLabel').textContent=t.observation;document.getElementById('viewApplicationLabel').textContent=t.application;document.getElementById('viewPrayerLabel').textContent=t.prayer;document.getElementById('viewEditBtn').textContent=t.editDevotional;document.getElementById('devModal').classList.add('show')}
+function closeDevModal(){document.getElementById('devModal').classList.remove('show');editingDevotionalIndex=null}
+function editCurrentDevotional(){if(editingDevotionalIndex===null)return;const a=JSON.parse(localStorage.getItem('devotionals')||'[]');const d=a[editingDevotionalIndex];if(!d)return;document.getElementById('scripture').value=d.scripture||'';document.getElementById('observation').value=d.observation||'';document.getElementById('application').value=d.application||'';document.getElementById('prayer').value=d.prayer||'';document.getElementById('devDate').textContent=formatDevotionalDate(d.dateISO||d.date);window.editingDevotionalIndex=editingDevotionalIndex;document.getElementById('devModal').classList.remove('show');show('create')}
+function saveDevotional(){const d={scripture:scripture.value,observation:observation.value,application:application.value,prayer:prayer.value,date:(window.editingDevotionalIndex!==null&&window.editingDevotionalIndex!==undefined&&JSON.parse(localStorage.getItem('devotionals')||'[]')[window.editingDevotionalIndex]?.date)||new Date().toISOString(),dateISO:(window.editingDevotionalIndex!==null&&window.editingDevotionalIndex!==undefined&&JSON.parse(localStorage.getItem('devotionals')||'[]')[window.editingDevotionalIndex]?.dateISO)||new Date().toISOString()};if(!d.scripture&&!d.observation&&!d.application&&!d.prayer){toast((UI[localStorage.getItem('appLanguage')||'EN']||UI.EN).emptyDev);return}let a=JSON.parse(localStorage.getItem('devotionals')||'[]');if(window.editingDevotionalIndex!==null&&window.editingDevotionalIndex!==undefined&&a[window.editingDevotionalIndex]){a[window.editingDevotionalIndex]=d;window.editingDevotionalIndex=null}else{a.unshift(d)}localStorage.setItem('devotionals',JSON.stringify(a));['scripture','observation','application','prayer'].forEach(id=>document.getElementById(id).value='');setDevotionalDate();toast((UI[localStorage.getItem('appLanguage')||'EN']||UI.EN).savedMsg);show('saved')}
+function formatDevotionalDate(value){const lang=localStorage.getItem('appLanguage')||'EN';let d=value?new Date(value):new Date();if(Number.isNaN(d.getTime())) d=new Date();const months={EN:['January','February','March','April','May','June','July','August','September','October','November','December'],CEB:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Septiyembre','Oktubre','Nobyembre','Disyembre'],ILO:['Enero','Pebrero','Marso','Abril','Mayo','Hunio','Hulio','Agosto','Septiembre','Oktubre','Nobiembre','Disiembre'],HIL:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Setyembre','Oktubre','Nobyembre','Disyembre'],CEB:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Septiyembre','Oktubre','Nobyembre','Disyembre'],ILO:['Enero','Pebrero','Marso','Abril','Mayo','Hunio','Hulio','Agosto','Septiembre','Oktubre','Nobiembre','Disiembre'],TAG:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Setyembre','Oktubre','Nobyembre','Disyembre']};const m=(months[lang]||months.EN)[d.getMonth()];return lang==='TAG'?m+' '+d.getDate()+', '+d.getFullYear():lang==='HIL'?d.getDate()+' '+m+' '+d.getFullYear():m+' '+d.getDate()+', '+d.getFullYear()}
+function formatTodayDate(){return formatDevotionalDate(new Date())}
+function setDevotionalDate(){document.getElementById('devDate').textContent=formatDevotionalDate(new Date());const x=document.getElementById('todayDate');if(x)x.textContent=formatTodayDate()}
+function getDevotionalDateParts(value){const d=value?new Date(value):new Date();if(Number.isNaN(d.getTime()))return null;return {date:d,year:d.getFullYear(),month:d.getMonth(),day:d.getDate()}}
+function populateSavedMonthFilter(){const el=document.getElementById('savedMonthFilter');if(!el)return;const lang=localStorage.getItem('appLanguage')||'EN';const t=UI[lang]||UI.EN;const months={EN:['January','February','March','April','May','June','July','August','September','October','November','December'],CEB:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Septiyembre','Oktubre','Nobyembre','Disyembre'],ILO:['Enero','Pebrero','Marso','Abril','Mayo','Hunio','Hulio','Agosto','Septiembre','Oktubre','Nobiembre','Disiembre'],HIL:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Setyembre','Oktubre','Nobyembre','Disyembre'],CEB:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Septiyembre','Oktubre','Nobyembre','Disyembre'],ILO:['Enero','Pebrero','Marso','Abril','Mayo','Hunio','Hulio','Agosto','Septiembre','Oktubre','Nobiembre','Disiembre'],TAG:['Enero','Pebrero','Marso','Abril','Mayo','Hunyo','Hulyo','Agosto','Setyembre','Oktubre','Nobyembre','Disyembre']}[lang]||[];const current=el.value;const years=[...new Set(JSON.parse(localStorage.getItem('devotionals')||'[]').map(d=>getDevotionalDateParts(d.dateISO||d.date)).filter(Boolean).map(x=>x.year))].sort((a,b)=>b-a);el.innerHTML='<option value="">'+esc(t.allMonths)+'</option>'+years.flatMap(y=>months.map((m,mi)=>({y,mi,m}))).map(x=>'<option value="'+x.y+'-'+String(x.mi+1).padStart(2,'0')+'">'+x.m+' '+x.y+'</option>').join('');if(current)el.value=current}
+function openSavedCalendar(){const el=document.getElementById('savedDateFilter');if(!el)return;if(typeof el.showPicker==='function'){try{el.showPicker();return}catch(e){}}el.focus();}
+function filterSaved(){const date=document.getElementById('savedDateFilter')?.value||'';renderSaved('',date)}
+function clearSavedFilter(){const d=document.getElementById('savedDateFilter');if(d)d.value='';renderSaved()}
+function renderSaved(monthFilter='',dateFilter=''){let a=JSON.parse(localStorage.getItem('devotionals')||'[]');const t=UI[localStorage.getItem('appLanguage')||'EN']||UI.EN;const filtered=a.map((d,i)=>({d,i})).filter(({d})=>{const p=getDevotionalDateParts(d.dateISO||d.date);if(!p)return false;if(dateFilter){const localDate=p.year+'-'+String(p.month+1).padStart(2,'0')+'-'+String(p.day).padStart(2,'0');if(localDate!==dateFilter)return false}return true});document.getElementById('savedList').innerHTML=filtered.length?filtered.map(({d,i})=>`<div class="card"><div class="listitem"><div><b>${esc(formatDevotionalDate(d.dateISO||d.date))}</b></div><div class="saved-actions"><button class="btn secondary saved-icon" aria-label="${t.view}" title="${t.view}" onclick="viewDevotional(${i})">👁</button><button class="btn primary saved-icon" aria-label="${t.edit}" title="${t.edit}" onclick="startEditDevotional(${i})">✎</button><button class="btn danger saved-icon" aria-label="${t.delete}" title="${t.delete}" onclick="removeDev(${i})">×</button></div></div><p>${esc(d.scripture||d.application||d.observation||t.emptyNotes)}</p></div>`).join(''):`<div class="empty">${a.length?t.noMatches:t.noSaved}<br>${a.length?'':t.createFirst}</div>`}
+
+function startEditDevotional(i){const a=JSON.parse(localStorage.getItem('devotionals')||'[]');const d=a[i];if(!d)return;document.getElementById('scripture').value=d.scripture||'';document.getElementById('observation').value=d.observation||'';document.getElementById('application').value=d.application||'';document.getElementById('prayer').value=d.prayer||'';document.getElementById('devDate').textContent=formatDevotionalDate(d.dateISO||d.date);window.editingDevotionalIndex=i;show('create')}
+function renderRecent(){let a=JSON.parse(localStorage.getItem('devotionals')||'[]');const t=UI[localStorage.getItem('appLanguage')||'EN']||UI.EN;document.getElementById('recent').innerHTML=a.slice(0,3).map((d,i)=>`<div class="card" role="button" tabindex="0" style="cursor:pointer" aria-label="${t.view}" onclick="viewDevotional(${i})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();viewDevotional(${i})}"><b>${esc(formatDevotionalDate(d.dateISO||d.date))}</b><p>${esc(d.scripture||d.application||d.observation||'')}</p></div>`).join('')||`<div class="empty">${t.noRecent}</div>`}
+function removeDev(i){let a=JSON.parse(localStorage.getItem('devotionals')||'[]');a.splice(i,1);localStorage.setItem('devotionals',JSON.stringify(a));renderSaved()}
+function clearSaved(){if(confirm((UI[localStorage.getItem('appLanguage')||'EN']||UI.EN).clearConfirm)){localStorage.removeItem('devotionals');renderSaved();toast((UI[localStorage.getItem('appLanguage')||'EN']||UI.EN).clearedMsg)}}
+let editingChurchNoteId=null;
+function getChurchNotes(){try{const value=JSON.parse(localStorage.getItem('churchNotes')||'[]');return Array.isArray(value)?value:[]}catch(e){return []}}
+function updateChurchNoteDate(){const el=document.getElementById('churchNoteDate');if(el)el.textContent=(localStorage.getItem('appLanguage')==='HIL'?'Petsa: ':localStorage.getItem('appLanguage')==='TAG'?'Petsa: ':localStorage.getItem('appLanguage')==='CEB'?'Petsa: ':localStorage.getItem('appLanguage')==='ILO'?'Petsa: ':'Date: ')+formatDevotionalDate(new Date().toISOString())}
+function resetChurchNoteForm(){editingChurchNoteId=null;document.getElementById('churchNoteTitle').value='';document.getElementById('churchNoteBody').value='';document.getElementById('saveChurchNoteBtn').textContent=({EN:'Save Note',HIL:'Tipigi ang Nota',TAG:'I-save ang Tala'})[localStorage.getItem('appLanguage')||'EN'];document.getElementById('cancelChurchNoteBtn').classList.add('hidden');updateChurchNoteDate()}
+function saveChurchNote(){const title=document.getElementById('churchNoteTitle').value.trim();const body=document.getElementById('churchNoteBody').value.trim();const lang=localStorage.getItem('appLanguage')||'EN';if(!title&&!body){toast(({EN:'Please write a title or note first.',HIL:'Palihog magsulat anay sang titulo ukon nota.',TAG:'Magsulat muna ng pamagat o tala.',CEB:'Palihog pagsulat una og titulo o nota.',ILO:'Maidawat nga isurat pay ti pamagat wenno nota.'})[lang]);return}const notes=getChurchNotes();if(editingChurchNoteId){const index=notes.findIndex(n=>n.id===editingChurchNoteId);if(index>=0){notes[index]={...notes[index],title,body,updatedAt:new Date().toISOString()}}else{notes.unshift({id:String(Date.now()),title,body,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()})}}else{notes.unshift({id:String(Date.now())+'-'+Math.random().toString(36).slice(2,8),title,body,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()})}localStorage.setItem('churchNotes',JSON.stringify(notes));resetChurchNoteForm();renderChurchNotes();toast(({EN:'Church note saved.',HIL:'Natipigan ang nota sa iglesia.',TAG:'Na-save ang tala sa simbahan.',CEB:'Na-save ang nota sa simbahan.',ILO:'Naidulin ti nota ti iglesia.'})[lang])}
+function clearChurchNotesFilter(){document.getElementById('churchNotesDateFilter').value='';renderChurchNotes()}
+function viewChurchNote(id){const lang=localStorage.getItem('appLanguage')||'EN';const n=getChurchNotes().find(x=>x.id===id);if(!n)return;const labels={EN:'Church Note',HIL:'Nota sa Iglesia',TAG:'Tala sa Simbahan',CEB:'Nota sa Simbahan',ILO:'Nota ti Iglesia'};document.getElementById('churchNoteViewTitle').textContent=n.title||labels[lang];document.getElementById('churchNoteViewDate').textContent=formatDevotionalDate(n.updatedAt||n.createdAt);document.getElementById('churchNoteViewBody').textContent=n.body||'';document.getElementById('churchNoteViewModal').classList.add('show')}
+function closeChurchNoteView(){document.getElementById('churchNoteViewModal').classList.remove('show')}
+function renderChurchNotes(){const el=document.getElementById('churchNotesList');if(!el)return;const lang=localStorage.getItem('appLanguage')||'EN';const allNotes=getChurchNotes();const exactDate=document.getElementById('churchNotesDateFilter')?.value||'';const notes=allNotes.filter(n=>{const d=(n.updatedAt||n.createdAt||'').slice(0,10);if(exactDate&&d!==exactDate)return false;return true});const txt={EN:{empty:'No church notes yet. Write your first note above.',none:'No church notes match this date filter.',fallback:'Church Note',view:'View',edit:'Edit',del:'Delete'},HIL:{empty:'Wala pa sing nota. Isulat ang una mo nga nota sa ibabaw.',none:'Wala sing nota nga nagatupong sa sini nga petsa.',fallback:'Nota sa Iglesia',view:'Tan-awon',edit:'I-edit',del:'Delete'},TAG:{empty:'Wala pang tala. Isulat ang una mong tala sa itaas.',none:'Walang tala na tumutugma sa napiling petsa.',fallback:'Tala sa Simbahan',view:'Tingnan',edit:'I-edit',del:'Tanggalin'},CEB:{empty:'Wala pay nota sa simbahan. Isulat ang imong unang nota sa ibabaw.',none:'Walay nota nga motakdo sa gipiling petsa.',fallback:'Nota sa Simbahan',view:'Tan-awon',edit:'Usba',del:'Papas-a'},ILO:{empty:'Awan pay nota ti iglesia. Isurat ti umuna a notam iti ngato.',none:'Awan ti nota a maitutunos iti napili a petsa.',fallback:'Nota ti Iglesia',view:'Kitaen',edit:'Baliwan',del:'Punasen'}}[lang]||{empty:'No church notes yet.',none:'No notes match this filter.',fallback:'Church Note',view:'View',edit:'Edit',del:'Delete'};if(!allNotes.length){el.innerHTML='<div class="empty">'+txt.empty+'</div>';return}if(!notes.length){el.innerHTML='<div class="empty">'+txt.none+'</div>';return}el.innerHTML=notes.map(n=>{const id=String(n.id).replace(/[^a-zA-Z0-9_-]/g,'');const date=formatDevotionalDate(n.updatedAt||n.createdAt);return '<article class="card"><div class="sectiontitle" style="align-items:center;gap:8px"><div style="min-width:0;flex:1"><b style="overflow-wrap:anywhere">'+esc(n.title||txt.fallback)+'</b><div class="muted small" style="margin-top:5px">'+esc(date)+'</div></div><div class="saved-actions"><button class="btn secondary saved-icon" aria-label="'+txt.view+'" title="'+txt.view+'" onclick="viewChurchNote(\''+id+'\')">◉</button><button class="btn primary saved-icon" aria-label="'+txt.edit+'" title="'+txt.edit+'" onclick="editChurchNote(\''+id+'\')">✎</button><button class="btn danger saved-icon" aria-label="'+txt.del+'" title="'+txt.del+'" onclick="deleteChurchNote(\''+id+'\')">×</button></div></div></article>'}).join('')}
+
+function editChurchNote(id){const n=getChurchNotes().find(x=>x.id===id);if(!n)return;editingChurchNoteId=id;document.getElementById('churchNoteTitle').value=n.title||'';document.getElementById('churchNoteBody').value=n.body||'';document.getElementById('saveChurchNoteBtn').textContent=({EN:'Save Changes',HIL:'Tipigi ang mga Pagbag-o',TAG:'I-save ang mga Pagbabago',CEB:'I-save ang mga Pagbag-o',ILO:'Idulin Dagiti Panagbalbaliw'})[localStorage.getItem('appLanguage')||'EN'];document.getElementById('cancelChurchNoteBtn').classList.remove('hidden');document.getElementById('churchNoteTitle').focus();document.getElementById('churchNotes').scrollTop=0;window.scrollTo({top:0,behavior:'smooth'})}
+function deleteChurchNote(id){const lang=localStorage.getItem('appLanguage')||'EN';const confirmText=({EN:'Delete this church note? This cannot be undone.',HIL:'I-delete ini nga nota sa iglesia? Indi ini ma-undo.',TAG:'Tanggalin ang tala na ito? Hindi na ito maibabalik.',CEB:'Papas-on kini nga nota sa simbahan? Dili na kini ma-undo.',ILO:'Punasen daytoy a nota ti iglesia? Saanen a mabaliktad.'})[lang];if(!confirm(confirmText))return;const notes=getChurchNotes().filter(n=>n.id!==id);localStorage.setItem('churchNotes',JSON.stringify(notes));if(editingChurchNoteId===id)resetChurchNoteForm();renderChurchNotes();toast(({EN:'Church note deleted.',HIL:'Na-delete ang nota sa iglesia.',TAG:'Naitanggal ang tala sa simbahan.',CEB:'Napapas na ang nota sa simbahan.',ILO:'Napunas ti nota ti iglesia.'})[lang])}
+function toast(t){const x=document.getElementById('toast');if(!x)return;x.textContent=t;x.style.display='block';clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>x.style.display='none',1800)}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function openYesterdayScripture(){
+  const passage=window.yesterdayDailyPassage;
+  if(!passage)return;
+  const [book,ch,start,end]=passage;
+  const modal=document.getElementById('yesterdayVerseModal');
+  const title=document.getElementById('yesterdayVerseTitle');
+  const version=document.getElementById('yesterdayVerseVersion');
+  const content=document.getElementById('yesterdayVerseContent');
+  const bookSelect=document.getElementById('bibleBook');
+  const chapterSelect=document.getElementById('bibleChapter');
+  const oldBook=bookSelect.value;
+  const oldChapter=chapterSelect.value;
+  const oldSelected=pageSelected.slice();
+  title.textContent=bookName(book)+' '+ch+':'+(start===end?start:start+'–'+end);
+  version.textContent=versionLabel(currentVersion());
+  content.textContent='Loading Scripture…';
+  modal.classList.add('show');
+  try{
+    bookSelect.value=book;
+    const chapterCount=CHAPTER_COUNTS[book]||1;
+    chapterSelect.innerHTML=Array.from({length:chapterCount},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('');
+    chapterSelect.value=String(ch);
+    await renderBibleChapter();
+    const rows=(window.loadedBibleVerses||[]).filter(row=>{
+      const match=String(row[0]).match(/:(\d+)$/);
+      if(!match)return false;
+      const number=Number(match[1]);
+      return number>=start&&number<=end;
+    });
+    if(!rows.length)throw new Error('Passage unavailable');
+    content.innerHTML=rows.map(row=>{
+      const number=Number(row[0].split(':').pop());
+      return '<p style="margin:0 0 14px;line-height:1.8"><strong style="color:#243b63;font-size:13px">'+number+'.</strong> '+esc(row[1])+'</p>';
+    }).join('');
+  }catch(error){
+    content.textContent='This Scripture could not be loaded. Please check your internet connection and try again.';
+  }finally{
+    bookSelect.value=oldBook;
+    const count=CHAPTER_COUNTS[oldBook]||1;
+    chapterSelect.innerHTML=Array.from({length:count},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('');
+    chapterSelect.value=oldChapter;
+    pageSelected=oldSelected;
+    await renderBibleChapter();
+  }
+}
+function closeYesterdayScripture(){
+  document.getElementById('yesterdayVerseModal').classList.remove('show');
+}
+
+const savedBibleLanguage=localStorage.getItem('bibleLanguage')||'AUTO';const initialLanguage=(['CEB','ILO'].includes(savedBibleLanguage)?savedBibleLanguage:(localStorage.getItem('appLanguage')||'EN'));applyLanguage(initialLanguage);document.getElementById('appLanguage').value=initialLanguage;populateBooks();populateChapters();setDevotionalDate();renderRecent();renderChurchNotes();updateChurchNoteDate();updateDayScripture();if(!localStorage.getItem('userName'))openNamePrompt();
+</script>
+<script>
+(function(){
+  const splash=document.getElementById('churchSplash');
+  if(!splash) return;
+  setTimeout(()=>{ splash.classList.add('hide'); setTimeout(()=>splash.remove(),400); }, 1600);
+})();
+</script>
+<script>
+(function(){
+  if('serviceWorker' in navigator && (location.protocol==='https:' || location.hostname==='localhost')){
+    window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){})});
+  }
+})();
+</script>
+</body></html>
