@@ -1,6 +1,6 @@
-/* Devotional PWA service worker — bumped to refresh the updated church logo. */
-const CACHE_NAME = 'jilc-devotional-v14-logo-refresh';
-const APP_SHELL = ['./', './index.html', './manifest.webmanifest?v=3', './icon-192.png?v=3', './icon-512.png?v=3'];
+/* Devotional PWA service worker — refresh icon paths under the existing icons folder. */
+const CACHE_NAME = 'jilc-devotional-v15-icons-folder';
+const APP_SHELL = ['./', './index.html', './manifest.webmanifest?v=4', './icons/icon-192.png?v=4', './icons/icon-512.png?v=4'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
@@ -28,8 +28,6 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
-
-  // Always check the network first for the app document so published HTML updates appear promptly.
   if (request.mode === 'navigate' || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/manifest.webmanifest')) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME);
@@ -43,8 +41,6 @@ self.addEventListener('fetch', (event) => {
     })());
     return;
   }
-
-  // Cache logo/icon assets under the new versioned URLs, with network fallback.
   if (url.pathname.endsWith('.png') || url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME);
