@@ -1,6 +1,6 @@
-/* Devotional PWA service worker — refresh icon paths under the existing icons folder. */
-const CACHE_NAME = 'jilc-devotional-v15-icons-folder';
-const APP_SHELL = ['./', './index.html', './manifest.webmanifest?v=4', './icons/icon-192.png?v=4', './icons/icon-512.png?v=4'];
+/* Devotional PWA service worker — refreshes Home Screen icons only. */
+const CACHE_NAME = 'jilc-devotional-v16-rounded-home-icon';
+const APP_SHELL = ['./', './index.html', './manifest.webmanifest?v=5', './icons/home-icon-192.png?v=5', './icons/home-icon-512.png?v=5', './icons/icon-192.png?v=4', './icons/icon-512.png?v=4'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
