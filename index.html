@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Devotional App — Jesus Is Lord Church, Bacolod City Chapter</title>
+<title>Devotional App — Jesus Is Lord Church, Phoenix-Arizona</title>
 <link rel="manifest" href="manifest.webmanifest?v=4">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/home-icon-192.png?v=4">
 <link rel="apple-touch-icon" sizes="192x192" href="./icons/home-icon-192.png?v=4">
@@ -34,7 +34,7 @@ textarea{resize:vertical}
 <body>
 <div id="churchSplash" aria-label="Church logo splash screen"><img src="./icons/home-icon-512.png?v=4" alt="Church logo" onerror="this.style.display='none'"><div class="splash-title">Devotional</div><div class="splash-sub">A moment with God's Word</div></div>
 <div class="app">
-<header class="top"><div id="brand" class="brand">✦ Devotional</div><div class="church-header" aria-label="Jesus Is Lord Church, Bacolod City Chapter"><span>Jesus Is Lord Church</span><span>Bacolod City Chapter</span></div></header>
+<header class="top"><div id="brand" class="brand">✦ Devotional</div><div class="church-header" aria-label="Jesus Is Lord Church, Phoenix-Ariozona"><span>Jesus Is Lord Church</span><span>Phoenix-Arizona</span></div></header>
 <main>
 <section id="home" class="screen active"><div class="hero"><div id="welcomeGreeting" class="welcome-greeting">You are blessed ERWIN!</div><div class="eyebrow" id="dayLabel">Scripture of the Day</div><div id="todayDate" class="muted small" style="color:rgba(255,255,255,.82);margin-top:4px"></div><h1 id="dayTitle">Trust God With Your Whole Heart</h1><div id="dayVersion" class="muted small" style="margin-bottom:10px">KJV — King James Version</div><div id="dayVerse" class="verse">“And this I pray, that your love may abound yet more and more in knowledge and in all judgment;”</div><div id="dayRef" class="ref">Philippians 1:9</div><div class="row" style="margin-top:16px"><button id="readDayBtn" class="btn secondary" onclick="readDayScripture()">📖 Read in Bible</button></div></div><div id="yesterdayScriptureCard" class="card" style="margin-top:0"><div id="yesterdayScriptureLabel" class="label" style="margin-top:0">Yesterday's Scripture</div><div id="yesterdayScriptureRef" class="ref" role="button" tabindex="0" aria-label="Read yesterday’s Scripture" title="Tap to read the full passage" style="margin-top:0;cursor:pointer" onclick="openYesterdayScripture()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openYesterdayScripture()}">Philippians 1:9–11</div></div><div class="sectiontitle"><h2 id="recentTitle">My Recent Devotionals</h2><button id="newBtn" class="btn secondary" onclick="newDevotional()">＋ New</button></div><div id="recent"></div></section>
 <section id="bible" class="screen"><div class="sectiontitle"><h2 id="bibleTitle">📖 Bible</h2></div><div id="bibleBookLabel" class="label">Book</div><select id="bibleBook" onchange="document.getElementById('bibleChapter').value='1';populateChapters()"></select><div id="bibleChapterLabel" class="label">Chapter</div><select id="bibleChapter" onchange="renderBibleChapter()"></select><div id="chapterHeading" class="bible-heading">Philippians 1</div><div id="chapterVerses" class="bible-reading"></div><button id="addBibleSelectedBtn" class="btn primary hidden" style="width:100%;margin-top:14px" onclick="addBiblePageSelected()">Add Selected Scripture</button></section>
