@@ -1,25 +1,13 @@
 {
-  "id": "./",
   "name": "Devotional App — Jesus Is Lord Church, Bacolod City Chapter",
   "short_name": "Devotional",
-  "description": "A moment with God's Word",
-  "start_url": "./?source=pwa",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#243b63",
   "icons": [
-    {
-      "src": "./icons/home-icon-192.png?v=5",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./icons/home-icon-512.png?v=5",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
+    { "src": "./icons/home-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/home-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }

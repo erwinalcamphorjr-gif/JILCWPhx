@@ -1,56 +1,53 @@
-/* Devotional PWA service worker — refreshes Home Screen icons only. */
-const CACHE_NAME = 'jilc-devotional-v16-rounded-home-icon';
-const APP_SHELL = ['./', './index.html', './manifest.webmanifest?v=5', './icons/home-icon-192.png?v=5', './icons/home-icon-512.png?v=5', './icons/icon-192.png?v=4', './icons/icon-512.png?v=4'];
+const CACHE_NAME = 'jilcwphx-devotional-logo-v41';
+const APP_SHELL = [
+  './',
+  './index.html',
+  './manifest.webmanifest',
+  './icons/home-icon-192.png',
+  './icons/home-icon-512.png'
+];
 
-self.addEventListener('install', (event) => {
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    await Promise.all(APP_SHELL.map(async (url) => {
-      try {
-        const response = await fetch(url, { cache: 'reload' });
-        if (response.ok) await cache.put(url, response.clone());
-      } catch (_) {}
-    }));
-    await self.skipWaiting();
-  })());
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(APP_SHELL))
+      .then(() => self.skipWaiting())
+  );
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil((async () => {
-    const keys = await caches.keys();
-    await Promise.all(keys.filter((key) => key.startsWith('jilc-devotional-') && key !== CACHE_NAME).map((key) => caches.delete(key)));
-    await self.clients.claim();
-  })());
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(key => key.startsWith('jilcwphx-devotional-') && key !== CACHE_NAME).map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
+  );
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
-  const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
-  if (request.mode === 'navigate' || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/manifest.webmanifest')) {
-    event.respondWith((async () => {
-      const cache = await caches.open(CACHE_NAME);
-      try {
-        const response = await fetch(request, { cache: 'no-cache' });
-        if (response.ok) await cache.put(request, response.clone());
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request).then(response => {
+        if (response && response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put('./index.html', copy));
+        }
         return response;
-      } catch (_) {
-        return (await cache.match(request)) || (await cache.match('./index.html')) || Response.error();
-      }
-    })());
+      }).catch(() => caches.match('./index.html'))
+    );
     return;
   }
-  if (url.pathname.endsWith('.png') || url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
-    event.respondWith((async () => {
-      const cache = await caches.open(CACHE_NAME);
-      const cached = await cache.match(request);
+  event.respondWith(
+    caches.match(request).then(cached => {
       if (cached) return cached;
-      try {
-        const response = await fetch(request);
-        if (response.ok) await cache.put(request, response.clone());
+      return fetch(request).then(response => {
+        if (response && response.status === 200 && response.type === 'basic') {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+        }
         return response;
-      } catch (_) { return Response.error(); }
-    })());
-  }
+      }).catch(() => caches.match('./index.html'));
+    })
+  );
 });

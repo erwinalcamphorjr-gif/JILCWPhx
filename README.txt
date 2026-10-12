@@ -1,22 +1,20 @@
-DEVOTIONAL APP — UPDATED PACKAGE
+JILCWPhx Devotional App — Tapered Home Screen Logo Package
 
-Files:
-- index.html — corrected latest v35-based app
-- manifest.webmanifest — PWA manifest
-- sw.js — v36 service worker with network-first page updates
-- icons/icon-192.png
-- icons/icon-512.png
+CONTENTS
+- index.html: updated devotional app prototype
+- manifest.webmanifest: PWA install metadata and icon references
+- sw.js: service worker cache updated for the new icon filenames and cache version
+- icons/home-icon-192.png: 192px app icon
+- icons/home-icon-512.png: 512px app icon
 
-GitHub Pages:
-1. Replace your existing index.html with this index.html.
-2. Replace sw.js with this sw.js.
-3. Replace manifest.webmanifest with this manifest.webmanifest.
-4. Upload the icons folder if you do not already have it.
-5. Commit the changes.
+GITHUB INSTALLATION
+1. Open your JILCWPhx repository.
+2. Replace the root index.html, manifest.webmanifest, and sw.js with the files in this package.
+3. In the root, open the icons folder. Add or replace home-icon-192.png and home-icon-512.png there.
+4. Keep the folder name exactly "icons" and filenames exactly as shown.
+5. Commit the changes and wait for GitHub Pages to deploy.
+6. On iPhone, remove the old Home Screen shortcut, open the updated website in Safari, then use Share > Add to Home Screen.
+7. On Android, refresh the site and reinstall the app if the old icon remains.
 
-Working fixes in this package:
-- Home now uses the same v35 Bible cache as the Bible screen.
-- Fixed the Home NIV parser call so it uses the current version variable.
-- Home saves fetched NIV/NKJV/NLT chapters using the v35 cache key.
-- Service worker bumped to v36 and uses network-first navigation so GitHub updates are less likely to remain stale.
-- The stable v35 NIV parser and 66-book mapping are preserved.
+IMPORTANT
+The phone's operating system applies its own rounded icon mask. This package uses the current uploaded JILC logo image in the required icon sizes; the actual artwork is not redrawn here. The prototype does not update the live GitHub repository automatically.
