@@ -1,4 +1,5 @@
-const CACHE_NAME = 'jilcwphx-devotional-logo-v42';
+
+const CACHE_NAME = 'jilcwphx-devotional-logo-v43';
 
 const APP_SHELL = [
   './',
@@ -31,6 +32,67 @@ self.addEventListener('activate', event => {
         )
       )
       .then(() => self.clients.claim())
+  );
+});
+
+// Display a notification when a push message is received.
+self.addEventListener('push', event => {
+  let data = {
+    title: 'DEVOTIONAL TIME',
+    body: "It's time to spend a moment with God's Word.",
+    url: './'
+  };
+
+  if (event.data) {
+    try {
+      const received = event.data.json();
+      data = { ...data, ...received };
+    } catch {
+      data.body = event.data.text() || data.body;
+    }
+  }
+
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: './icons/home-icon-192.png',
+      badge: './icons/home-icon-192.png',
+      tag: 'jilcwphx-devotional-reminder',
+      data: { url: data.url || './' }
+    })
+  );
+});
+
+// Open the app when the user taps the notification.
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+
+  event.waitUntil(
+    (async () => {
+      const targetUrl = new URL(
+        event.notification.data?.url || './',
+        self.registration.scope
+      ).href;
+
+      const windows = await self.clients.matchAll({
+        type: 'window',
+        includeUncontrolled: true
+      });
+
+      for (const client of windows) {
+        if ('focus' in client) {
+          await client.focus();
+          if ('navigate' in client) {
+            await client.navigate(targetUrl);
+          }
+          return;
+        }
+      }
+
+      if (self.clients.openWindow) {
+        await self.clients.openWindow(targetUrl);
+      }
+    })()
   );
 });
 
